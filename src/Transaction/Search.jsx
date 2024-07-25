@@ -102,6 +102,7 @@ function Issue() {
     setselectCostCenter,
     handleDateChange,
     handleDateToChange,
+    Type
   } = FAM_SEARCH();
   return (
     <>
@@ -491,6 +492,7 @@ function Issue() {
                     Search
                   </Button>
                   &nbsp;
+                  {(Type == null &&
                   <Button
                     className="ButtonSearch"
                     style={{
@@ -502,7 +504,7 @@ function Issue() {
                   >
                     <AddIcon />
                     New
-                  </Button>
+                  </Button>)}
                   &nbsp;
                   {Path === "FAMMASTER" && (
                     <Button

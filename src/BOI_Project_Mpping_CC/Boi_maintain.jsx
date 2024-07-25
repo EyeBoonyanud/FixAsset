@@ -136,7 +136,8 @@ function Boi_maintain({ isOpen, onClose, searchFunction }) {
         try {
           const response = await axios.get(`/getcost`);
           const CostData = await response.data;
-          CostData.push(['ALL', 'ALL']);
+          CostData.unshift(['ALL', 'ALL']);
+          // CostData.push(['ALL', 'ALL']);
           setcost(CostData);
         } catch (error) {
           console.error("Error during login:", error);

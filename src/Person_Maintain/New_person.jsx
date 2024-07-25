@@ -129,7 +129,8 @@ function person_maintain_new({ isOpen, onClose, searchFunction }) {
         try {
           const response = await axios.get(`/getcost`);
           const CostData = await response.data;
-          CostData.push(['ALL', 'ALL']);
+          // CostData.push(['ALL', 'ALL']);
+          CostData.unshift(['ALL', 'ALL']);
           setcost(CostData);
           
         } catch (error) {

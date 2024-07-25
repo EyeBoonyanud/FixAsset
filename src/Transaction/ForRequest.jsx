@@ -143,7 +143,7 @@ function ForRequest() {
     setchecknext,
     fileInputRef,handleWeightChange,weights,totalWeight,
     size,handleSizeChange,handleUnitPriceChange,unit_price, handleInvoiceChange,
-    invoice
+    invoice,ErrTelReq, ErrOwnerID,ErrTelOwner,ErrDept,ErrServiceDept
   } = FAM_GET_REQUEST();
   const renderTableCells = (columns) => (
     <>
@@ -297,6 +297,7 @@ function ForRequest() {
                       Request By Tel :
                     </Typography>
                   </Grid>
+                 { console.log(Gen_Fam_No,"Gen_Fam_No")}
                   <Grid xs={3}>
                     <TextField
                       size="small"
@@ -310,22 +311,9 @@ function ForRequest() {
                       id="Txt_Tel"
                       value={Tel1}
                       onChange={handleTel}
-                      error={
-                        (Gen_Fam_No || EditFam) &&
-                        (Tel1 === "" || Tel1 === undefined || Tel1 === null)
-                      }
-                      FormHelperTextProps={{
-                        error:
-                          (Gen_Fam_No || EditFam) &&
-                          (Tel1 === "" || Tel1 === undefined || Tel1 === null),
-                      }}
+                      error={ErrTelReq && (!Tel1)}
+                      helperText={ErrTelReq && (!Tel1) ? 'กรุณาระบุ Request By Tel' : ''}
                     >
-                      <FormHelperText>
-                        {(Gen_Fam_No || EditFam) &&
-                        (Tel1 === "" || Tel1 === undefined || Tel1 === null)
-                          ? ""
-                          : "Please enter your mobile phone number"}
-                      </FormHelperText>
                     </TextField>
                   </Grid>
                 </Grid>
@@ -340,25 +328,24 @@ function ForRequest() {
                   <Grid xs={3}>
                     <TextField
                       size="small"
-                      disabled={read_tel}
+                      // disabled={read_tel}
+                      disabled={read_fix_group}
                       style={{
                         width: "100%",
-                        backgroundColor: read_tel
+                        backgroundColor: read_fix_group
                           ? "rgba(169, 169, 169, 0.3)"
                           : "",
                       }}
                       id="Txt_user"
                       value={owner_req}
+                     
                       onChange={(e) => {
                         setowner_req(e.target.value);
                         handleEmpUser(e.target.value);
                       }}
-                      error={
-                        (Gen_Fam_No || EditFam) &&
-                        (owner_req === "" ||
-                          owner_req === undefined ||
-                          owner_req === null)
-                      }
+                      error={ErrOwnerID && (!owner_req)}
+                      helperText={ErrOwnerID && (!owner_req) ? 'กรุณาระบุ Owner Id' : ''}
+                      
                     ></TextField>
                   </Grid>
                   <Grid xs={2}>
@@ -418,12 +405,8 @@ function ForRequest() {
                       disabled={read_tel}
                       value={owner_tel}
                       onChange={handleOwner_tel}
-                      error={
-                        (Gen_Fam_No || EditFam) &&
-                        (owner_tel === "" ||
-                          owner_tel === undefined ||
-                          owner_tel === null)
-                      }
+                      error={ErrTelOwner && (!owner_tel)}
+                      helperText={ErrTelOwner && (!owner_tel) ? 'กรุณาระบุ Owner Tel' : ''}
                     />
                   </Grid>
                 </Grid>
@@ -468,36 +451,30 @@ function ForRequest() {
                     STS1_Req === "FLSC001" ||
                     STS1_Req == "FLLD001" ? (
                       <FormControl fullWidth>
-                        <Autocomplete
-                          disabled={read_dept}
-                          style={{
-                            width: "100%",
-                            backgroundColor: read_dept
-                              ? "rgba(169, 169, 169, 0.3)"
-                              : "",
-                          }}
-                          error={
-                            (Gen_Fam_No || EditFam) &&
-                            (selectDept1 === "" ||
-                              selectDept1 === undefined ||
-                              selectDept1 === null)
-                          }
-                          value={selectDept1}
-                          onChange={(e, value) => {
-                            setselectDept1(value);
-                            handleDept(value);
-                          }}
-                          options={Dept.map((item) => item)}
-                          renderInput={(params) => (
-                            <TextField
-                              {...params}
-                              label="Select"
-                              size="small"
-                              sx={{ textAlign: "left" }}
-                            />
-                          )}
-                        />
-                      </FormControl>
+  <Autocomplete
+    disabled={read_dept}
+    style={{
+      width: "100%",
+      backgroundColor: read_dept ? "rgba(169, 169, 169, 0.3)" : "",
+    }}
+    value={selectDept1}
+    onChange={(e, value) => {
+      setselectDept1(value);
+      handleDept(value);
+    }}
+    options={Dept.map((item) => item)}
+    renderInput={(params) => (
+      <TextField
+        {...params}
+        label="Select"
+        size="small"
+        sx={{ textAlign: "left" }}
+        error={ErrDept && !selectDept1}
+        helperText={ErrDept && !selectDept1 ? 'กรุณาเลือก Dept' : ''}
+      />
+    )}
+  />
+</FormControl>
                     ) : (
                       <TextField
                         style={{
@@ -592,32 +569,31 @@ function ForRequest() {
                     </Typography>
                   </Grid>
                   <Grid xs={3}>
-                    <FormControl fullWidth>
-                      <InputLabel size="small" id="demo-simple-select-label">
-                        Select
-                      </InputLabel>
-                      <Select
-                        label="Select"
-                        id="SL_AssetGroup"
-                        size="small"
-                        value={selectFixAssetgroup1}
-                        onChange={(e) =>
-                          setselectFixAssetgroup1(e.target.value)
-                        }
-                        style={{
-                          backgroundColor: read_fix_group
-                            ? "rgba(169, 169, 169, 0.3)"
-                            : "",
-                        }}
-                        disabled={read_fix_group}
-                      >
-                        {FixAssetgroup.map((option, index) => (
-                          <MenuItem key={index} value={FixAssetgroup[index][0]}>
-                            {FixAssetgroup[index][1]}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
+                  <FormControl fullWidth error={ErrServiceDept && !selectFixAssetgroup1}>
+      <InputLabel size="small" id="demo-simple-select-label">
+        Select
+      </InputLabel>
+      <Select
+        label="Select"
+        id="SL_AssetGroup"
+        size="small"
+        value={selectFixAssetgroup1}
+        onChange={(e) => setselectFixAssetgroup1(e.target.value)}
+        style={{
+          backgroundColor: read_fix_group ? "rgba(169, 169, 169, 0.3)" : "",
+        }}
+        disabled={read_fix_group}
+      >
+        {FixAssetgroup.map((option, index) => (
+          <MenuItem key={index} value={FixAssetgroup[index][0]}>
+            {FixAssetgroup[index][1]}
+          </MenuItem>
+        ))}
+      </Select>
+      {ErrServiceDept && !selectFixAssetgroup1 && (
+        <FormHelperText>กรุณาเลือก Service Dept</FormHelperText>
+      )}
+    </FormControl>
                   </Grid>
                   <Grid xs={2}>
                     <Typography
