@@ -159,86 +159,9 @@ function Issue() {
                     </Select>
                   </FormControl>
                 </TableCell>
-                <TableCell style={{ border: "0" }}>
-                </TableCell>
-              </TableRow>
-
-              <TableRow>
-                <TableCell style={{ border: "0" }}>
-                  <TextField
-                    id="FamNo"
-                    size="small"
-                    label="FAM No. :"
-                    style={{
-                      backgroundColor: "white",
-                      borderRadius: "4px",
-                      width: "200px",
-                      marginRight: "5px",
-                    }}
-                  ></TextField>
-                </TableCell>
-                <TableCell style={{ border: "0" }}>
-                  <TextField
-                    id="FamTo"
-                    size="small"
-                    label="To. :"
-                    style={{
-                      backgroundColor: "white",
-                      borderRadius: "4px",
-                      width: "200px",
-                      marginRight: "5px",
-                    }}
-                  ></TextField>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell style={{ border: "0" }}>
-                  <FormControl
-                    sx={{ width: 200 }}
-                    style={{
-                      display:
-                        Path === "SEARCH" || Path === "APPROVEFAM"
-                          ? "block"
-                          : "none",
-                    }}
-                  >
-                    <Autocomplete
-                      value={selectdept}
-                      onChange={(e, value) => setselectdept(value)}
-                      options={dept.map((item) => item[0])}
-                      noOptionsText="กรุณาเลือก Factory"
-                      renderInput={(params) => (
-                        <TextField
-                          {...params}
-                          label="Dept :"
-                          size="small"
-                          sx={{ textAlign: "left" }}
-                        />
-                      )}
-                    />
-                  </FormControl>
-                  <FormControl
-                    sx={{ width: 200 }}
-                    style={{ display: Path === "FAMMASTER" ? "block" : "none" }}
-                  >
-                    <Autocomplete
-                      multiple
-                      value={selectdeptMul}
-                      onChange={(e, value) => setselectdeptMul(value)}
-                      options={dept.map((item) => item[0])}
-                      noOptionsText="กรุณาเลือก Factory"
-                      renderInput={(params) => (
-                        <TextField
-                          {...params}
-                          label="Dept :"
-                          size="small"
-                          sx={{ textAlign: "left" }}
-                        />
-                      )}
-                    />
-                  </FormControl>
-                </TableCell>
-                <TableCell style={{ border: 0 }}>
+                {/* <TableCell style={{ border: "0" }}>
+                </TableCell> */}
+                  <TableCell style={{ border: 0 }}>
                   <FormControl
                     sx={{ width: 200 }}
                     style={{
@@ -288,6 +211,134 @@ function Issue() {
                     />
                   </FormControl>
                 </TableCell>
+                
+              </TableRow>
+
+              <TableRow>
+                <TableCell style={{ border: "0" }}>
+                  <TextField
+                    id="FamNo"
+                    size="small"
+                    label="FAM No. :"
+                    style={{
+                      backgroundColor: "white",
+                      borderRadius: "4px",
+                      width: "200px",
+                      marginRight: "5px",
+                    }}
+                  ></TextField>
+                </TableCell>
+                <TableCell style={{ border: "0" }}>
+                  <TextField
+                    id="FamTo"
+                    size="small"
+                    label="To. :"
+                    style={{
+                      backgroundColor: "white",
+                      borderRadius: "4px",
+                      width: "200px",
+                      marginRight: "5px",
+                    }}
+                  ></TextField>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell style={{ border: "0" }}>
+                  <FormControl
+                    sx={{ width: 200 }}
+                    style={{
+                      display:
+                        Path === "SEARCH" || Path === "APPROVEFAM"
+                          ? "block"
+                          : "none",
+                    }}
+                  >
+                    {/* <Autocomplete
+                      value={selectdept}
+                      onChange={(e, value) => setselectdept(value)}
+                      options={dept.map((item) => item[0])}
+                      noOptionsText="กรุณาเลือก Factory"
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          label="Dept :"
+                          size="small"
+                          sx={{ textAlign: "left" }}
+                        />
+                      )}
+                    /> */}
+                  </FormControl>
+                  <FormControl
+                    sx={{ width: 200 }}
+                    style={{ display: Path === "FAMMASTER" ? "block" : "none" }}
+                  >
+                    {/* <Autocomplete
+                      multiple
+                      value={selectdeptMul}
+                      onChange={(e, value) => setselectdeptMul(value)}
+                      options={dept.map((item) => item[0])}
+                      noOptionsText="กรุณาเลือก Factory"
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          label="Dept :"
+                          size="small"
+                          sx={{ textAlign: "left" }}
+                        />
+                      )}
+                    /> */}
+                  </FormControl>
+                </TableCell>
+                {/* <TableCell style={{ border: 0 }}>
+                  <FormControl
+                    sx={{ width: 200 }}
+                    style={{
+                      display:
+                        Path === "SEARCH" || Path === "APPROVEFAM"
+                          ? "block"
+                          : "none",
+                    }}
+                  >
+                    <Autocomplete
+                      value={selectcost}
+                      onChange={(e, value) => setselectcost(value)}
+                      options={getCostCenter.map((item) => item[0])}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          label="Cost Center :"
+                          size="small"
+                          sx={{ textAlign: "left" }}
+                        />
+                      )}
+                    />
+                  </FormControl>
+                
+                  <FormControl
+                    sx={{ width: 200 }}
+                    style={{
+                      display:
+                        Path === "SEARCH" || Path === "APPROVEFAM"
+                          ? "none"
+                          : "",
+                    }}
+                  >
+                    <Autocomplete
+                      multiple
+                      value={selectCostCenter}
+                      onChange={(e, value) => setselectCostCenter(value)}
+                      options={getCostCenter.map((item) => item[0])}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          label="Cost Center :"
+                          size="small"
+                          sx={{ textAlign: "left" }}
+                        />
+                      )}
+                    />
+                  </FormControl>
+                </TableCell> */}
               </TableRow>
               <TableRow>
                 <TableCell style={{ border: "0" }}>

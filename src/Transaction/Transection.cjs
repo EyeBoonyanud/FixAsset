@@ -48,7 +48,7 @@ module.exports.emp = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล emp:", error.message);
   }
 };
 //Homepage
@@ -94,7 +94,7 @@ WHERE
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล gethome_page :", error.message);
   }
 };
 // Factory
@@ -111,7 +111,7 @@ module.exports.factory = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล factory:", error.message);
   }
 };
 module.exports.dept = async function (req, res) {
@@ -130,7 +130,7 @@ module.exports.dept = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล dept:", error.message);
   }
 };
 //CostCenter
@@ -146,7 +146,7 @@ module.exports.cost = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล cost:", error.message);
   }
 };
 //RequestType
@@ -164,7 +164,7 @@ module.exports.type = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล type:", error.message);
   }
 };
 //Status
@@ -179,7 +179,7 @@ module.exports.findsts = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล findsts:", error.message);
   }
 };
 // RequestBy
@@ -197,7 +197,7 @@ module.exports.by = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล by :", error.message);
   }
 };
 //Search
@@ -249,7 +249,7 @@ module.exports.search = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล search :", error.message);
   }
 };
 // Serach Approve
@@ -332,7 +332,7 @@ module.exports.search2 = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล search2 :", error.message);
   }
 };
 module.exports.fixcode = async function (req, res) {
@@ -381,7 +381,7 @@ ORDER BY
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล fixcode:", error.message);
   }
 };
 
@@ -401,7 +401,7 @@ module.exports.fac_insert = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล fac_insert:", error.message);
   }
 };
 //Costcenter
@@ -419,15 +419,9 @@ module.exports.cost_insert = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล cost_insert:", error.message);
   }
 };
-// Fixed Asset Group
-// SELECT T.FRC_CHK_PREFIX AS inpCode,
-// T.FRC_GROUP AS ShowDesc
-// FROM FAM_RUNNING_CONTROL T
-// WHERE T.FRC_FACTORY = '${Asset_group}'
-// ORDER BY T.FRC_FACTORY,T.FRC_CHK_PREFIX,T.FRC_GROUP
 module.exports.fix_group = async function (req, res) {
   try {
     const { Asset_group } = req.body;
@@ -464,7 +458,7 @@ module.exports.status = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล status :", error.message);
   }
 };
 
@@ -483,7 +477,7 @@ module.exports.id_service = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล id_service :", error.message);
   }
 };
 //หา Service Find_asset Cost
@@ -503,7 +497,7 @@ module.exports.find_service = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล find_service:", error.message);
   }
 };
 // หา fix-group
@@ -536,7 +530,7 @@ module.exports.fam_no = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล fam_no :", error.message);
   }
 };
 // insert FAM NO.สำหรับ การได้ เอกสารครั้งแรก
@@ -594,8 +588,8 @@ module.exports.insert_tranfer = async function (req, res) {
     connect.release();
     res.status(200).json({ success: true }); // send response
   } catch (error) {
-    console.error("Error:", error);
-    res.status(500).send("Internal Server Error");
+    console.error("Error: insert_tranfer", error);
+    res.status(500).send("Internal Server Error : insert_tranfer");
   }
 };
 
@@ -616,8 +610,8 @@ module.exports.create_date = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
-    res.status(500).send("Internal Server Error");
+    console.error("Error in querying data: create_date", error.message);
+    res.status(500).send("Internal Server Error :create_date");
   }
 };
 module.exports.update_date = async function (req, res) {
@@ -637,7 +631,7 @@ module.exports.update_date = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_date", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -661,7 +655,7 @@ VALUES (:tranfer,:assetcc, SYSDATE,:reqby)
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: insert_asset_transfer", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -763,7 +757,7 @@ module.exports.insert_FAM_REQ_DETAIL = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: insert_FAM_REQ_DETAIL", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -786,7 +780,7 @@ module.exports.delete_FAM_REQ_DETAIL = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: delete_FAM_REQ_DETAIL", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -810,7 +804,7 @@ module.exports.ins_from_Boi = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: ins_from_Boi", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -827,7 +821,7 @@ module.exports.new_boi = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: new_boi", error.message);
   }
 };
 module.exports.select_BOI_from = async (req, res) => {
@@ -845,7 +839,7 @@ module.exports.select_BOI_from = async (req, res) => {
     connect.release();
     res.status(200).json(result.rows);
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("Error select_BOI_from", error);
     res.status(500).json({ error: "An error occurred while sending email" });
   }
 };
@@ -889,7 +883,7 @@ module.exports.cc = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล : new_owner", error.message);
   }
 };
 // D7 Department Manager
@@ -908,7 +902,7 @@ module.exports.level_mana = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: level_mana", error.message);
   }
 };
 // D8 Service By
@@ -927,7 +921,7 @@ module.exports.service_by = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: service_by", error.message);
   }
 };
 // D9 BOI Staff
@@ -948,7 +942,7 @@ module.exports.boi_staff = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: boi_staff", error.message);
   }
 };
 //D10 BOI Manager
@@ -969,7 +963,7 @@ module.exports.boi_manager = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: boi_manager", error.message);
   }
 };
 // D11 Factory Manager
@@ -989,7 +983,7 @@ module.exports.fac_manager = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: fac_manager", error.message);
   }
 };
 // D12 ACC Check
@@ -1010,7 +1004,7 @@ module.exports.acc_check = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: acc_check", error.message);
   }
 };
 //D13 ACC Manager
@@ -1031,7 +1025,7 @@ module.exports.acc_manager = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: acc_manager", error.message);
   }
 };
 // D14 PTE(ENV)
@@ -1156,7 +1150,7 @@ module.exports.ins_transfer = async function (req, res) {
     res.json(result);
     connect.release();
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: ins_transfer", error.message);
     res.status(500).send(`Internal Server Error: ${error.message}`);
   }
 };
@@ -1218,7 +1212,7 @@ module.exports.routing_tran = async function (req, res) {
     res.json(result);
     connect.release();
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: routing_tran", error.message);
     res.status(500).send(`Internal Server Error: ${error.message}`);
   }
 };
@@ -1244,13 +1238,13 @@ module.exports.receiver_tranfer = async function (req, res) {
     if (result) {
       res.json(result);
     } else {
-      console.error("Error: Unexpected result from the database");
+      console.error("Error:  receiver_tranfer");
       res.status(500).send("Internal Server Error");
     }
 
     connect.release();
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data receiver_tranfer :", error.message);
     res.status(500).send(`Internal Server Error: ${error.message}`);
   }
 };
@@ -1283,7 +1277,7 @@ module.exports.close_routing_tran = async function (req, res) {
 
     connect.release();
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: close_routing_tran", error.message);
     res.status(500).send(`Internal Server Error: ${error.message}`);
   }
 };
@@ -1301,7 +1295,7 @@ module.exports.header = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: header", error.message);
   }
 };
 //update submit
@@ -1332,7 +1326,7 @@ module.exports.update_submit = async function (req, res) {
 
     connect.release();
   } catch (error) {
-    console.error("Error in querying data :", error.message);
+    console.error("Error in querying data : update_submit", error.message);
     res.status(500).send(`Internal Server Error: ${error.message}`);
   }
 };
@@ -1349,27 +1343,27 @@ module.exports.insertFile_from_request = async function (req, res) {
     const connect = await oracledb.getConnection(AVO);
     const query = `
     
-MERGE INTO FAM_FILE_ATTACH T
-USING (SELECT :fam_no AS FFA_FAM_NO, 
-              :fam_from AS FFA_ATT_FROM, 
-              :fam_file_seq AS FFA_FILE_SEQ, 
-              :fam_file_name AS FFA_FILE_NAME, 
-              :fam_file_server AS FFA_FILE_SERVER, 
-              :fam_create AS FFA_CREATE_BY, 
-              SYSDATE AS FFA_CREATE_DATE, 
-              :fam_create AS FFA_UPDATE_BY, 
-              SYSDATE AS FFA_UPDATE_DATE 
-       FROM DUAL) S
-ON (T.FFA_FAM_NO = S.FFA_FAM_NO AND T.FFA_ATT_FROM = S.FFA_ATT_FROM  AND T.FFA_FILE_SEQ = S.FFA_FILE_SEQ)
-WHEN MATCHED THEN
-  UPDATE SET 
-             T.FFA_FILE_NAME = S.FFA_FILE_NAME,
-             T.FFA_FILE_SERVER = S.FFA_FILE_SERVER,
-             T.FFA_UPDATE_BY = S.FFA_UPDATE_BY,
-             T.FFA_UPDATE_DATE = S.FFA_UPDATE_DATE
-WHEN NOT MATCHED THEN
-  INSERT (FFA_FAM_NO, FFA_ATT_FROM, FFA_FILE_SEQ, FFA_FILE_NAME, FFA_FILE_SERVER, FFA_CREATE_BY, FFA_CREATE_DATE, FFA_UPDATE_BY, FFA_UPDATE_DATE)
-  VALUES (S.FFA_FAM_NO, S.FFA_ATT_FROM, S.FFA_FILE_SEQ, S.FFA_FILE_NAME, S.FFA_FILE_SERVER, S.FFA_CREATE_BY, S.FFA_CREATE_DATE, S.FFA_UPDATE_BY, S.FFA_UPDATE_DATE)
+  MERGE INTO FAM_FILE_ATTACH T
+  USING (SELECT :fam_no AS FFA_FAM_NO, 
+                :fam_from AS FFA_ATT_FROM, 
+                :fam_file_seq AS FFA_FILE_SEQ, 
+                :fam_file_name AS FFA_FILE_NAME, 
+                :fam_file_server AS FFA_FILE_SERVER, 
+                :fam_create AS FFA_CREATE_BY, 
+                SYSDATE AS FFA_CREATE_DATE, 
+                :fam_create AS FFA_UPDATE_BY, 
+                SYSDATE AS FFA_UPDATE_DATE 
+        FROM DUAL) S
+  ON (T.FFA_FAM_NO = S.FFA_FAM_NO AND T.FFA_ATT_FROM = S.FFA_ATT_FROM  AND T.FFA_FILE_SEQ = S.FFA_FILE_SEQ)
+  WHEN MATCHED THEN
+    UPDATE SET 
+              T.FFA_FILE_NAME = S.FFA_FILE_NAME,
+              T.FFA_FILE_SERVER = S.FFA_FILE_SERVER,
+              T.FFA_UPDATE_BY = S.FFA_UPDATE_BY,
+              T.FFA_UPDATE_DATE = S.FFA_UPDATE_DATE
+  WHEN NOT MATCHED THEN
+    INSERT (FFA_FAM_NO, FFA_ATT_FROM, FFA_FILE_SEQ, FFA_FILE_NAME, FFA_FILE_SERVER, FFA_CREATE_BY, FFA_CREATE_DATE, FFA_UPDATE_BY, FFA_UPDATE_DATE)
+    VALUES (S.FFA_FAM_NO, S.FFA_ATT_FROM, S.FFA_FILE_SEQ, S.FFA_FILE_NAME, S.FFA_FILE_SERVER, S.FFA_CREATE_BY, S.FFA_CREATE_DATE, S.FFA_UPDATE_BY, S.FFA_UPDATE_DATE)
 
          `;
     const data = {
@@ -1382,9 +1376,9 @@ WHEN NOT MATCHED THEN
     };
     const result = await connect.execute(query, data, { autoCommit: true });
     connect.release();
-    res.status(200).send("YESSSSSSSSSSSSSSSSSSSs");
+    res.status(200).send("OK");
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: insertFile_from_request", error.message);
     res.status(500).send("no");
   }
 };
@@ -1409,7 +1403,7 @@ module.exports.get_run_seq_request = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: get_run_seq_request", error.message);
   }
 };
 // get run ownersend
@@ -1432,7 +1426,7 @@ module.exports.get_run_owner_file = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: get_run_owner_file", error.message);
   }
 };
 // get run ownersend_return
@@ -1455,7 +1449,7 @@ module.exports.get_run_owner_file_return = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: get_run_owner_file_return", error.message);
   }
 };
 //get run pte_file
@@ -1583,12 +1577,15 @@ module.exports.getEdit_Request_Show = async function (req, res) {
     T.FAM_REQ_OWNER,
     T.FAM_REQ_OWNER_CC,
     T.FAM_REQ_OWNER_TEL,
-    S.ENAME || '  ' || S.ESURNAME AS NAME_SURNAME 
+    S.ENAME || '  ' || S.ESURNAME AS NAME_SURNAME,
+    MF.CC_CTR||' : '||MF.CC_DESC 
 FROM FAM_REQ_HEADER T 
 LEFT JOIN FAM_FLOW_MASTER F ON F.FFM_CODE = T.FAM_REQ_STATUS 
 LEFT JOIN CUSR.CU_FACTORY_M M ON  M.FACTORY_CODE  =  T.FAM_FACTORY 
 LEFT JOIN CUSR.CU_USER_M R ON R.USER_LOGIN = T.FAM_REQ_BY 
-LEFT JOIN CUSR.CU_USER_HUMANTRIX S  ON S.EMPCODE = T.FAM_REQ_OWNER 
+LEFT JOIN CUSR.CU_USER_HUMANTRIX S  ON S.EMPCODE = T.FAM_REQ_OWNER
+LEFT JOIN CUSR.CU_MFGPRO_CC_MSTR MF ON MF.CC_CTR  =T.FAM_REQ_OWNER_CC 
+
 
 WHERE T.FRH_FAM_NO = :FamNo
           `;
@@ -1603,7 +1600,7 @@ WHERE T.FRH_FAM_NO = :FamNo
     res.json(flatArray);
   } catch (error) {
     // console.error("Error in querying data:", error.message);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Internal Server Error : getEdit_Request_Show");
   }
 };
 //show FixAsset
@@ -1654,7 +1651,7 @@ module.exports.getEdit_FileUpload = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: getEdit_FileUpload", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -1696,7 +1693,7 @@ module.exports.getEdit_Trans = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: getEdit_Trans", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -1760,7 +1757,7 @@ FROM
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: getEdit_routing", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -1855,7 +1852,7 @@ module.exports.Update_For_Req_All = async function (req, res) {
 
     connect.release();
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: Update_For_Req_All", error.message);
     res.status(500).send(`Internal Server Error: ${error.message}`);
   }
 };
@@ -1917,7 +1914,7 @@ module.exports.Update_For_Trans_All = async function (req, res) {
 
     connect.release();
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: Update_For_Trans_All", error.message);
     res.status(500).send(`Internal Server Error: ${error.message}`);
   }
 };
@@ -1944,7 +1941,7 @@ module.exports.getFixcode = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: getFixcode", error.message);
   }
 };
 // DELETE ALL
@@ -1964,7 +1961,7 @@ module.exports.delect_all_fam_header = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: delect_all_fam_header", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -1984,32 +1981,11 @@ module.exports.delect_all_fam_details = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: delect_all_fam_details", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
-//อันเก่า ก่อนแก้วันที่ 29/03
-// module.exports.delect_all_fam_transfer = async function (req, res) {
-//   try {
 
-//     const FRT_FAM_NO = req.query.famno;
-//     const connect = await oracledb.getConnection(AVO);
-//     const query = `
-//     DELETE FROM FAM_REQ_TRANSFER
-//      WHERE FRT_FAM_NO = :fam
-
-//     `;
-//     const data = {
-//       fam: FRT_FAM_NO,
-//     };
-//     const result = await connect.execute(query, data, { autoCommit: true });
-//     connect.release();
-//     res.json(result);
-//   } catch (error) {
-//     console.error("Error in querying data:", error.message);
-//     res.status(500).send("Internal Server Error");
-//   }
-// };
 module.exports.delect_all_fam_transfer = async function (req, res) {
   try {
     const { famno, idsts } = req.body;
@@ -2038,7 +2014,7 @@ module.exports.delect_all_fam_transfer = async function (req, res) {
 
     connect.release();
   } catch (error) {
-    res.status(500).send(`Internal Server Error: ${error.message}`);
+    res.status(500).send(`Internal Server Error: delect_all_fam_transfer ${error.message}`);
   }
 };
 
@@ -2059,7 +2035,7 @@ module.exports.delete_all_file = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Internal Server Error : delete_all_file");
   }
 };
 module.exports.deletefile = async function (req, res) {
@@ -2079,7 +2055,7 @@ module.exports.deletefile = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: deletefile", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2108,7 +2084,7 @@ module.exports.update_manager_dept = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_manager_dept", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2136,7 +2112,7 @@ WHERE FRH_FAM_NO = :famno
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_service_by", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2166,7 +2142,7 @@ module.exports.update_boi_staff = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_boi_staff", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2197,7 +2173,7 @@ module.exports.update_boi_mana = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_boi_mana", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2229,7 +2205,7 @@ module.exports.update_facmanager = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_facmanager", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2261,7 +2237,7 @@ module.exports.update_acccheck = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_acccheck", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2292,7 +2268,7 @@ module.exports.update_owner = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_owner", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2323,7 +2299,7 @@ module.exports.update_recode = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_recode", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2354,7 +2330,7 @@ module.exports.update_accmanager = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_accmanager", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2385,7 +2361,7 @@ module.exports.update_service_close = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_service_close", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2415,7 +2391,7 @@ WHERE
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_receiver", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2472,7 +2448,7 @@ module.exports.update_for_nullRouting_All = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_for_nullRouting_All", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2502,7 +2478,7 @@ module.exports.update_All_for_receive = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_All_for_receive", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2522,7 +2498,7 @@ module.exports.level_person_maintain = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: level_person_maintain", error.message);
   }
 };
 
@@ -2542,7 +2518,7 @@ module.exports.getData_UserLogin_Person = async (req, res) => {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("Error retrieving data:", error);
+    console.error("Error retrieving data: getData_UserLogin_Person", error);
     res.status(500).json({ error: "An error occurred while retrieving data" });
   }
 };
@@ -2580,7 +2556,7 @@ module.exports.insertPerson_Maintain = async (req, res) => {
     connect.release();
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Error inserting data:", error);
+    console.error("Error inserting data: insertPerson_Maintain", error);
     res.status(500).json({ error: "An error occurred while inserting data" });
   }
 };
@@ -2628,7 +2604,7 @@ module.exports.updatePerson_Maintain = async (req, res) => {
     connect.release();
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Error inserting data:", error);
+    console.error("Error inserting data: updatePerson_Maintain", error);
     res.status(500).json({ error: "An error occurred while inserting data" });
   }
 };
@@ -2679,7 +2655,7 @@ module.exports.search_person_maintain = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: search_person_maintain", error.message);
   }
 };
 module.exports.getEdit_Person_Show = async function (req, res) {
@@ -2717,7 +2693,7 @@ module.exports.getEdit_Person_Show = async function (req, res) {
     const flatArray = result.rows.map((item) => Object.values(item)).flat();
     res.json(flatArray);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล : getEdit_Person_Show", error.message);
   }
 };
 
@@ -2750,7 +2726,7 @@ module.exports.deletePerson_Maintain = async (req, res) => {
     connect.release();
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Error inserting data:", error);
+    console.error("Error inserting data: deletePerson_Maintain", error);
     res.status(500).json({ error: "An error occurred while inserting data" });
   }
 };
@@ -2771,16 +2747,13 @@ module.exports.get_BOI_project = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: get_BOI_project", error.message);
   }
 };
 
 //Search BOI Project
 module.exports.search_BOI_project = async function (req, res) {
   try {
-    // const factory = req.query.FBMC_factory;
-    // const cost_center = req.query.FBMC_cost_center;
-    // const BOI_Project = req.query.FBMC_BOI_project;
     const { FBMC_factory, FBMC_cost_center, FBMC_BOI_project } = req.body;
     const connect = await oracledb.getConnection(AVO);
     const query = `
@@ -2821,7 +2794,7 @@ ORDER BY
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: search_BOI_project", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2858,7 +2831,7 @@ module.exports.insertBOI_Maintain = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการบันทึกข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการบันทึกข้อมูล: insertBOI_Maintain", error.message);
   }
 };
 
@@ -2899,7 +2872,7 @@ module.exports.updateBOI_Maintain = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการบันทึกข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการบันทึกข้อมูล: updateBOI_Maintain", error.message);
   }
 };
 
@@ -2934,7 +2907,7 @@ WHERE
     const flatArray = result.rows.map((item) => Object.values(item)).flat();
     res.json(flatArray);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: getEdit_BOI_Show", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -2966,7 +2939,7 @@ module.exports.get_BOI_project_name = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: get_BOI_project_name", error.message);
   }
 };
 
@@ -2991,7 +2964,7 @@ module.exports.deleteBOI_Maintain = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการบันทึกข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการบันทึกข้อมูล: deleteBOI_Maintain", error.message);
   }
 };
 
@@ -3037,7 +3010,7 @@ module.exports.getCountTransfer = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: getCountTransfer", error.message);
   }
 };
 module.exports.getCountLoss = async function (req, res) {
@@ -3078,7 +3051,7 @@ module.exports.getCountLoss = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: getCountLoss", error.message);
   }
 };
 //CountTransferListALL
@@ -3150,7 +3123,7 @@ WHERE
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: getCountTransferlistaLL", error.message);
   }
 };
 
@@ -3168,7 +3141,7 @@ module.exports.getCountTransferlistaLLname = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: getCountTransferlistaLLname", error.message);
   }
 };
 /// Owner Id
@@ -3190,7 +3163,7 @@ WHERE T.EMPCODE = :owner_id
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: Id_owner", error.message);
   }
 };
 // Fix Asset
@@ -3220,7 +3193,7 @@ module.exports.fix_code_find = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: fix_code_find", error.message);
   }
 };
 // get comp
@@ -3244,7 +3217,7 @@ module.exports.get_COMP = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: get_COMP", error.message);
   }
 };
 // insert for detail new cc
@@ -3269,7 +3242,7 @@ module.exports.update_new_cc = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_new_cc", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -3293,7 +3266,7 @@ module.exports.update_for_date_trans = async function (req, res) {
     connect.release();
     res.json(result);
   } catch (error) {
-    console.error("Error in querying data:", error.message);
+    console.error("Error in querying data: update_for_date_trans", error.message);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -3353,7 +3326,7 @@ module.exports.searchFamMaster = async function (req, res) {
     res.json(result.rows);
 
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: searchFamMaster", error.message);
   }
 };
 // namefile
@@ -3369,7 +3342,7 @@ module.exports.namefile = async function (req, res) {
     connect.release();
     res.json(result.rows);
   } catch (error) {
-    console.error("ข้อผิดพลาดในการค้นหาข้อมูล:", error.message);
+    console.error("ข้อผิดพลาดในการค้นหาข้อมูล: namefile", error.message);
   }
 };
 module.exports.find_asset_fixdata = async function (req, res) {
@@ -4473,6 +4446,7 @@ module.exports.update_shipping_inv = async function (req, res) {
     res.status(500).send("Internal Server Error");
   }
 };
+
 module.exports.update_pln_upload_final = async function (req, res) {
   try {
     const { tranfer, pln_upload_final,move_date } =req.body;

@@ -342,6 +342,7 @@ function FAM_SEARCH() {
       const data = await response.data;
       const data_edit = JSON.stringify(data);
       localStorage.setItem("For_Req_Edit", data_edit);
+      console.log("data6666",data)
     } catch (error) {
       console.error("Error during login:", error);
     }
@@ -424,7 +425,7 @@ function FAM_SEARCH() {
     localStorage.setItem("EDIT", EditFam);
     setloading("True");
     setselectindex("0");
-    window.location.href = "/FAMsystem/ForRe";
+   window.location.href = "/FAMsystem/ForRe";
   };
 
   const handlePDF = async (PDF_FAM) => {

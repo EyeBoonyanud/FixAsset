@@ -25,10 +25,13 @@ import {
   InputLabel,
   Autocomplete,
   FormHelperText,
+  DialogContentText,DialogContent 
 } from "@mui/material";
+
 import Grid from "@mui/material/Unstable_Grid2";
 import ClearIcon from "@mui/icons-material/Clear";
 import PlagiarismIcon from "@mui/icons-material/Plagiarism";
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { Empty } from "antd";
 import "../Page/Style.css";
 import {
@@ -48,6 +51,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import PageLoadding from "../Loadding/Pageload";
 import { FAM_GET_REQUEST } from "../Function/FN_TRANSECTION_ALL/FAM_GET_REQUEST";
  import imageforshow from "../assets/Image/2.png"
+ import DownloadPDF from "../assets/PDFManual/Manual.png"
+ 
 
 
 function ForRequest() {
@@ -143,7 +148,7 @@ function ForRequest() {
     setchecknext,
     fileInputRef,handleWeightChange,weights,totalWeight,
     size,handleSizeChange,handleUnitPriceChange,unit_price, handleInvoiceChange,
-    invoice,ErrTelReq, ErrOwnerID,ErrTelOwner,ErrDept,ErrServiceDept
+    invoice,ErrTelReq, ErrOwnerID,ErrTelOwner,ErrDept,ErrServiceDept,handleManual,handleCloseManual,openManual,setownercost_dept,ownercost_dept
   } = FAM_GET_REQUEST();
   const renderTableCells = (columns) => (
     <>
@@ -155,6 +160,15 @@ function ForRequest() {
       {columns.includes("Unit Price(Baht)") && <TableCell>Unit Price(Baht)</TableCell>}
     </>
   );
+  // const [open, setOpen] = useState(false);
+
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
+
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
   
   const getColumns = (STS1_Req) => {
     switch(STS1_Req) {
@@ -297,7 +311,6 @@ function ForRequest() {
                       Request By Tel :
                     </Typography>
                   </Grid>
-                 { console.log(Gen_Fam_No,"Gen_Fam_No")}
                   <Grid xs={3}>
                     <TextField
                       size="small"
@@ -362,8 +375,8 @@ function ForRequest() {
                         backgroundColor: "rgba(169, 169, 169, 0.3)",
                       }}
                       disabled
-                      value={owner_dept}
-                      onChange={(e) => setowner_dept(e.target.value)}
+                      value={ownercost_dept}
+                      onChange={(e) => setownercost_dept(e.target.value)}
                     />
                   </Grid>
                 </Grid>
@@ -433,7 +446,7 @@ function ForRequest() {
                 </Grid>
 
                 {/* Dept  */}
-                <Grid container spacing={3}>
+                {/* <Grid container spacing={3}>
                   <Grid xs={1.7}>
                     <Typography style={{ width: "100%", textAlign: "right" }}>
                       Dept :
@@ -489,7 +502,7 @@ function ForRequest() {
                       ></TextField>
                     )}
                   </Grid>
-                </Grid>
+                </Grid> */}
                 {/* Radio Button Type  */}
                 <Grid container spacing={3}>
                   <Grid xs={1.7}>
@@ -568,7 +581,7 @@ function ForRequest() {
                       Service Dept:
                     </Typography>
                   </Grid>
-                  <Grid xs={3}>
+                  <Grid xs={2.5}>
                   <FormControl fullWidth error={ErrServiceDept && !selectFixAssetgroup1}>
       <InputLabel size="small" id="demo-simple-select-label">
         Select
@@ -581,6 +594,7 @@ function ForRequest() {
         onChange={(e) => setselectFixAssetgroup1(e.target.value)}
         style={{
           backgroundColor: read_fix_group ? "rgba(169, 169, 169, 0.3)" : "",
+         
         }}
         disabled={read_fix_group}
       >
@@ -589,12 +603,49 @@ function ForRequest() {
             {FixAssetgroup[index][1]}
           </MenuItem>
         ))}
-      </Select>
+      </Select> 
       {ErrServiceDept && !selectFixAssetgroup1 && (
         <FormHelperText>กรุณาเลือก Service Dept</FormHelperText>
       )}
+     
     </FormControl>
+    
                   </Grid>
+                  {/* <Grid xs={0.5}>
+                    <MenuBookIcon  onClick={handleManual}/>
+                    
+                    </Grid> */}
+                      <Grid xs={0.5}>
+        <AutoStoriesIcon  onClick={handleManual}  sx={{color:'#B22222',fontSize:'30px'}}/>
+      </Grid>
+
+      <Dialog 
+       maxWidth="lg"
+       fullWidth
+       style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+       open={openManual} onClose={handleCloseManual}>
+        <DialogTitle > <Typography variant="h6" component="div" style={{ fontWeight: 'bold' }}>
+            คู่มือ Service Dept
+          </Typography></DialogTitle>
+    
+          <DialogContentText>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+            <img  src={DownloadPDF} alt="My Image" style={{ width: '80%' }} />
+          </div>
+          </DialogContentText>
+   
+        <DialogActions>
+          <Button   variant="contained"  onClick={handleCloseManual} color="error">
+           close
+          </Button>
+         
+        </DialogActions>
+      </Dialog>
+                 
                   <Grid xs={2}>
                     <Typography
                       style={{

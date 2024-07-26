@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Upload } from "antd";
 
 function FAM_GET_REQUEST() {
   // LocalStrorage
@@ -56,6 +57,7 @@ function FAM_GET_REQUEST() {
   const [btnSave, setbtnSave] = useState("hidden");
   const [visibityDetails, setvisibityDetails] = useState("hidden");
   const [visibityFile, setvisibityFile] = useState("hidden");
+  const [ownercost_dept,setownercost_dept] = useState("")
 
   // Upload File
   const fileInputRef = useRef();
@@ -87,8 +89,6 @@ function FAM_GET_REQUEST() {
   const [ErrTelOwner,setErrTelOwner] = useState(false);
   const [ErrDept ,setErrDept] = useState(false);
   const [ErrServiceDept ,setErrServiceDept] = useState(false);
-
-  
 
   let STS = "";
   // Upload file
@@ -192,6 +192,7 @@ function FAM_GET_REQUEST() {
         setowner_dept(For_Rq_Edit[18]);
         setowner_tel(For_Rq_Edit[19]);
         setname_req(For_Rq_Edit[20]);
+        setownercost_dept(For_Rq_Edit[43])
         setcheckGenNo("hidden");
         setcheckReset("hidden");
         setread_fix_group(true);
@@ -246,6 +247,7 @@ function FAM_GET_REQUEST() {
         setowner_dept(For_Req[16]);
         setowner_tel(For_Req[17]);
         setname_req(For_Req[18]);
+        setownercost_dept(For_Req[19])
         setread_fix_group(true);
         setread_fix_cost(true);
 
@@ -558,8 +560,8 @@ function FAM_GET_REQUEST() {
         selectFixAssetgroup1.length === 0 &&
         owner_dept.length === 0 &&
         owner_tel.length === 0 &&
-        Tel1.length === 0 &&
-        selectDept1.length === 0
+        Tel1.length === 0 
+        // selectDept1.length === 0
       ) {
         alert(
           "กรุณาเลือก Request Type , Service Dept , Owner Id , Request By Tel , Owner Tel และ Dept"
@@ -603,19 +605,19 @@ function FAM_GET_REQUEST() {
         } else {
           setErrTelOwner(false);
         }
-      } else if (selectDept1.length === 0) {
-        alert("กรุณาเลือก Dept");
-        if (
-          selectDept1 === null ||
-          selectDept1 === undefined ||
-          selectDept1 === "" ||
-          selectDept1 === "null"
-        ) {
-          setErrDept(true);
-          closePopupLoadding();
-        } else {
-          setErrDept(false);
-        }
+      // } else if (selectDept1.length === 0) {
+      //   alert("กรุณาเลือก Dept");
+      //   if (
+      //     selectDept1 === null ||
+      //     selectDept1 === undefined ||
+      //     selectDept1 === "" ||
+      //     selectDept1 === "null"
+      //   ) {
+      //     setErrDept(true);
+      //     closePopupLoadding();
+      //   } else {
+      //     setErrDept(false);
+      //   }
       } else if (Request_type1.length === 0) {
         alert("กรุณาเลือก Request Type");
       } else if (selectFixAssetgroup1.length === 0) {
@@ -659,6 +661,7 @@ function FAM_GET_REQUEST() {
       owner_dept,
       owner_tel,
       name_req,
+      ownercost_dept
     ];
     const sentdata = JSON.stringify(setData_ForRequester);
     localStorage.setItem("ForRequester", sentdata);
@@ -725,6 +728,29 @@ function FAM_GET_REQUEST() {
         For_Rq_Edit[18],
         event.target.value,
         For_Rq_Edit[20],
+        For_Rq_Edit[21],
+For_Rq_Edit[22],
+For_Rq_Edit[23],
+For_Rq_Edit[24],
+For_Rq_Edit[25],
+For_Rq_Edit[26],
+For_Rq_Edit[27],
+For_Rq_Edit[28],
+For_Rq_Edit[29],
+For_Rq_Edit[30],
+For_Rq_Edit[31],
+For_Rq_Edit[32],
+For_Rq_Edit[33],
+For_Rq_Edit[34],
+For_Rq_Edit[35],
+For_Rq_Edit[36],
+For_Rq_Edit[37],
+For_Rq_Edit[38],
+For_Rq_Edit[39],
+For_Rq_Edit[40],
+For_Rq_Edit[41],
+For_Rq_Edit[42],
+For_Rq_Edit[43]
       ];
       const sentdata = JSON.stringify(setData_ForRequester);
       localStorage.setItem("For_Req_Edit", sentdata);
@@ -750,6 +776,7 @@ function FAM_GET_REQUEST() {
           owner_dept,
           event.target.value,
           name_req,
+          ownercost_dept
         ];
         const sentdata = JSON.stringify(setData_ForRequester);
         localStorage.setItem("ForRequester", sentdata);
@@ -774,6 +801,7 @@ function FAM_GET_REQUEST() {
           For_Req[16],
           event.target.value,
           For_Req[18],
+          For_Req[19],
         ];
         const sentdata = JSON.stringify(setData_ForRequester);
         localStorage.setItem("ForRequester", sentdata);
@@ -781,14 +809,26 @@ function FAM_GET_REQUEST() {
     }
   };
   const handleEmpUser = async (event) => {
+    let costdept =""
+    let cost =""
+  
     try {
       const response = await axios.post("/Id_owner", {
         owner_id: event,
       });
       const data = response.data;
+    
       setowner_dept(data[0][0]);
       setname_req(data[0][1]);
       setowner_dept(data[0][2]);
+      const cost = data[0][2];
+    
+      const res = await axios.post("/getfind_service", {
+        asset_find: cost,
+      });
+    
+      const costdept = res.data[0][1];
+      setownercost_dept(costdept)
       if (EditFam != null) {
         const setData_ForRequester = [
           For_Rq_Edit[0],
@@ -812,6 +852,28 @@ function FAM_GET_REQUEST() {
           data[0][2],
           For_Rq_Edit[19],
           data[0][1],
+          For_Rq_Edit[22],
+          For_Rq_Edit[23],
+          For_Rq_Edit[24],
+          For_Rq_Edit[25],
+          For_Rq_Edit[26],
+          For_Rq_Edit[27],
+          For_Rq_Edit[28],
+          For_Rq_Edit[29],
+          For_Rq_Edit[30],
+          For_Rq_Edit[31],
+          For_Rq_Edit[32],
+          For_Rq_Edit[33],
+          For_Rq_Edit[34],
+          For_Rq_Edit[35],
+          For_Rq_Edit[36],
+          For_Rq_Edit[37],
+          For_Rq_Edit[38],
+          For_Rq_Edit[39],
+          For_Rq_Edit[40],
+          For_Rq_Edit[41],
+          For_Rq_Edit[42],
+          costdept
         ];
         const sentdata = JSON.stringify(setData_ForRequester);
         localStorage.setItem("For_Req_Edit", sentdata);
@@ -837,6 +899,7 @@ function FAM_GET_REQUEST() {
             data[0][2],
             owner_tel,
             data[0][1],
+            costdept
           ];
           const sentdata = JSON.stringify(setData_ForRequester);
           localStorage.setItem("ForRequester", sentdata);
@@ -861,6 +924,7 @@ function FAM_GET_REQUEST() {
             data[0][2],
             For_Req[17],
             data[0][1],
+            costdept
           ];
           const sentdata = JSON.stringify(setData_ForRequester);
           localStorage.setItem("ForRequester", sentdata);
@@ -1013,7 +1077,11 @@ function FAM_GET_REQUEST() {
             if (datatable[0][5] === data[0][5]) {
             } else {
               // ถ้า datatable[0][5] มีค่าไม่ตรงกันกับ data[0][5]
-              alert("ไม่สามารถ ADD ได้ เนื่องจากคนละ BOI Project");
+              // alert("ไม่สามารถ ADD ได้ เนื่องจากคนละ BOI Project");
+              Swal.fire({
+                icon: "error",
+                title: "ไม่สามารถ ADD ได้ เนื่องจากคนละ BOI Project",
+              });
               closePopupLoadding();
               return;
             }
@@ -1038,7 +1106,7 @@ function FAM_GET_REQUEST() {
                 }
               });
               alert(
-                "Fixed Asset Code has been implemented:\n" +
+                "Fixed Asset Code ถูกใช้แล้วที่ :\n" +
                   uniqueKeys.join(", ")
               );
             }
@@ -1231,77 +1299,16 @@ function FAM_GET_REQUEST() {
     setSelectedItems([]);
     setOpen(false);
   };
+
+   const [openManual, setOpenManual] = useState(false);
+
+ 
+  const handleCloseManual = () => {
+    setOpenManual(false);
+  };
   const handleTel = async (event) => {
     setTel1(event.target.value);
-    // if (EditFam != null) {
-    //   const setData_ForRequester = [
-    //     For_Rq_Edit[0],
-    //     For_Rq_Edit[1],
-    //     For_Rq_Edit[2],
-    //     event.target.value,
-    //     For_Rq_Edit[4],
-    //     For_Rq_Edit[5],
-    //     For_Rq_Edit[6],
-    //     For_Rq_Edit[7],
-    //     For_Rq_Edit[8],
-    //     For_Rq_Edit[9],
-    //     For_Rq_Edit[10],
-    //     For_Rq_Edit[11],
-    //     For_Rq_Edit[12],
-    //     For_Rq_Edit[13],
-    //     For_Rq_Edit[14],
-    //     For_Rq_Edit[15],
-    //     For_Rq_Edit[16],
-    //     For_Rq_Edit[17],
-    //     For_Rq_Edit[18],
-    //     For_Rq_Edit[19],
-    //     For_Rq_Edit[20],
-    //   ];
-    //   const sentdata = JSON.stringify(setData_ForRequester);
-    //   localStorage.setItem("For_Req_Edit", sentdata);
-    // } else {
-    //   if (For_Req[0] == "" && For_Req[0] == null) {
-    //     const setData_ForRequester = [
-    //       "",
-    //       LocalUserLogin,
-    //       event.target.value,
-    //       Factory[1],
-    //       Costcenter1,
-    //       selectDept1,
-    //       Request_type1,
-    //       selectFixAssetgroup1,
-    //       owner_dept,
-    //       "",
-    //       "",
-    //       "",
-    //       Remark,
-    //       "",
-    //       Emp_name,
-    //     ];
-    //     const sentdata = JSON.stringify(setData_ForRequester);
-    //     localStorage.setItem("ForRequester", sentdata);
-    //   } else {
-    //     const setData_ForRequester = [
-    //       For_Req[0],
-    //       For_Req[1],
-    //       event.target.value,
-    //       For_Req[3],
-    //       For_Req[4],
-    //       For_Req[5],
-    //       For_Req[6],
-    //       For_Req[7],
-    //       For_Req[8],
-    //       For_Req[9],
-    //       For_Req[10],
-    //       For_Req[11],
-    //       For_Req[12],
-    //       For_Req[13],
-    //       For_Req[14],
-    //     ];
-    //     const sentdata = JSON.stringify(setData_ForRequester);
-    //     localStorage.setItem("ForRequester", sentdata);
-    //   }
-    // }
+   
     if (EditFam != null) {
       const setData_ForRequester = [
         For_Rq_Edit[0],
@@ -1325,6 +1332,30 @@ function FAM_GET_REQUEST() {
         For_Rq_Edit[18],
         For_Rq_Edit[19],
         For_Rq_Edit[20],
+        For_Rq_Edit[21],
+        For_Rq_Edit[22],
+For_Rq_Edit[23],
+For_Rq_Edit[24],
+For_Rq_Edit[25],
+For_Rq_Edit[26],
+For_Rq_Edit[27],
+For_Rq_Edit[28],
+For_Rq_Edit[29],
+For_Rq_Edit[30],
+For_Rq_Edit[31],
+For_Rq_Edit[32],
+For_Rq_Edit[33],
+For_Rq_Edit[34],
+For_Rq_Edit[35],
+For_Rq_Edit[36],
+For_Rq_Edit[37],
+For_Rq_Edit[38],
+For_Rq_Edit[39],
+For_Rq_Edit[40],
+For_Rq_Edit[41],
+For_Rq_Edit[42],
+For_Rq_Edit[43]
+        
       ];
       const sentdata = JSON.stringify(setData_ForRequester);
       localStorage.setItem("For_Req_Edit", sentdata);
@@ -1345,6 +1376,8 @@ function FAM_GET_REQUEST() {
         Remark,
         "",
         Emp_name,
+        ownercost_dept
+        
       ];
       const sentdata = JSON.stringify(setData_ForRequester);
       localStorage.setItem("ForRequester", sentdata);
@@ -1369,6 +1402,7 @@ function FAM_GET_REQUEST() {
         For_Req[16],
         For_Req[17],
         For_Req[18],
+        For_Req[19],
       ];
       const sentdata = JSON.stringify(setData_ForRequester);
       localStorage.setItem("ForRequester", sentdata);
@@ -1400,6 +1434,29 @@ function FAM_GET_REQUEST() {
         For_Rq_Edit[18],
         For_Rq_Edit[19],
         For_Rq_Edit[20],
+        For_Rq_Edit[21],
+        For_Rq_Edit[22],
+        For_Rq_Edit[23],
+        For_Rq_Edit[24],
+        For_Rq_Edit[25],
+        For_Rq_Edit[26],
+        For_Rq_Edit[27],
+        For_Rq_Edit[28],
+        For_Rq_Edit[29],
+        For_Rq_Edit[30],
+        For_Rq_Edit[31],
+        For_Rq_Edit[32],
+        For_Rq_Edit[33],
+        For_Rq_Edit[34],
+        For_Rq_Edit[35],
+        For_Rq_Edit[36],
+        For_Rq_Edit[37],
+        For_Rq_Edit[38],
+        For_Rq_Edit[39],
+        For_Rq_Edit[40],
+        For_Rq_Edit[41],
+        For_Rq_Edit[42],
+        For_Rq_Edit[43]
       ];
       const sentdata = JSON.stringify(setData_ForRequester);
       localStorage.setItem("For_Req_Edit", sentdata);
@@ -1421,6 +1478,7 @@ function FAM_GET_REQUEST() {
           Remark,
           "",
           Emp_name,
+          ownercost_dept
         ];
         const sentdata = JSON.stringify(setData_ForRequester);
         localStorage.setItem("ForRequester", sentdata);
@@ -1445,6 +1503,7 @@ function FAM_GET_REQUEST() {
           For_Req[16],
           For_Req[17],
           For_Req[18],
+          For_Req[19],
         ];
         const sentdata = JSON.stringify(setData_ForRequester);
         localStorage.setItem("ForRequester", sentdata);
@@ -1476,6 +1535,29 @@ function FAM_GET_REQUEST() {
         For_Rq_Edit[18],
         For_Rq_Edit[19],
         For_Rq_Edit[20],
+        For_Rq_Edit[21],
+        For_Rq_Edit[22],
+For_Rq_Edit[23],
+For_Rq_Edit[24],
+For_Rq_Edit[25],
+For_Rq_Edit[26],
+For_Rq_Edit[27],
+For_Rq_Edit[28],
+For_Rq_Edit[29],
+For_Rq_Edit[30],
+For_Rq_Edit[31],
+For_Rq_Edit[32],
+For_Rq_Edit[33],
+For_Rq_Edit[34],
+For_Rq_Edit[35],
+For_Rq_Edit[36],
+For_Rq_Edit[37],
+For_Rq_Edit[38],
+For_Rq_Edit[39],
+For_Rq_Edit[40],
+For_Rq_Edit[41],
+For_Rq_Edit[42],
+For_Rq_Edit[43]
       ];
       const sentdata = JSON.stringify(setData_ForRequester);
       localStorage.setItem("For_Req_Edit", sentdata);
@@ -1497,6 +1579,7 @@ function FAM_GET_REQUEST() {
           Remark,
           "",
           Emp_name,
+         ownercost_dept
         ];
         const sentdata = JSON.stringify(setData_ForRequester);
         localStorage.setItem("ForRequester", sentdata);
@@ -1521,6 +1604,7 @@ function FAM_GET_REQUEST() {
           For_Req[16],
           For_Req[17],
           For_Req[18],
+          For_Req[19],
         ];
         const sentdata = JSON.stringify(setData_ForRequester);
         localStorage.setItem("ForRequester", sentdata);
@@ -1899,8 +1983,13 @@ function FAM_GET_REQUEST() {
       // }
     }
   };
-  // const totalSize = Object.values(size).reduce((acc, curr) => acc + parseFloat(curr), 0);
 
+  const handleManual = () =>{
+    setOpenManual(true)
+    
+  }
+  // const totalSize = Object.values(size).reduce((acc, curr) => acc + parseFloat(curr), 0);
+  
   return {
     EditFam,
     dataUserLogin1,
@@ -2014,7 +2103,7 @@ function FAM_GET_REQUEST() {
     invoice,
     setinvoice,
     ErrTelReq,
-    ErrOwnerID,ErrTelOwner,ErrDept,ErrServiceDept
+    ErrOwnerID,ErrTelOwner,ErrDept,ErrServiceDept,handleManual,handleCloseManual,openManual,setownercost_dept,ownercost_dept
   };
 }
 
