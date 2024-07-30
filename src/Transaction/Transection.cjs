@@ -3320,7 +3320,7 @@ module.exports.searchFamMaster = async function (req, res) {
     AND (TO_CHAR(T.FAM_REQ_DATE , 'YYYY-MM-DD') <= '${DateTo}' OR '${DateTo}' IS NULL)
     AND (T.FAM_REQ_BY = '${ByID}' OR '${ByID}' IS NULL) 
     AND (T.FAM_REQ_STATUS = '${StsID}' OR '${StsID}' IS NULL)
-    ORDER BY T.FRH_FAM_NO ASC  `;
+    ORDER BY T.FRH_FAM_NO DESC  `;
     const result = await connect.execute(query);
     connect.release();
     res.json(result.rows);

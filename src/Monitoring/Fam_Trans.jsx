@@ -71,7 +71,6 @@ function TransFerDetail() {
     BackPage,
   } = FAM_TRANSECTION();
   const { downloadFile,STS } = FAM_REQUESTER();
-console.log(STS,"STS555")
   return (
     <>
       <div style={{ marginTop: "100px" }}>

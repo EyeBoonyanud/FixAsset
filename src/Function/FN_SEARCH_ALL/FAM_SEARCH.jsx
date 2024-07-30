@@ -342,7 +342,6 @@ function FAM_SEARCH() {
       const data = await response.data;
       const data_edit = JSON.stringify(data);
       localStorage.setItem("For_Req_Edit", data_edit);
-      console.log("data6666",data)
     } catch (error) {
       console.error("Error during login:", error);
     }

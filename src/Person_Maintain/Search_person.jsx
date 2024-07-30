@@ -82,6 +82,7 @@ function person_maintain() {
         const costData = costResponse.data;
         setdatafac(factoryData);
         setdatalevel(levelData);
+        costData.unshift(['ALL', 'ALL']);
         setcost(costData);
         closePopupLoadding();
       } catch (error) {
@@ -153,7 +154,6 @@ function person_maintain() {
         console.error("Error requesting data:", error);
       }
     } else {
-      // console.log("ไม่มีข้อมูลที่กลับมาค้นหา");
     }
     closePopupLoadding();
   };
@@ -225,7 +225,6 @@ function person_maintain() {
         }
       );
       const data = await getEdit_show.data;
-      console.log(data,"jjjjjjjj88888")
       const DataEdit = data;
       const PAGE_STATUS = "EDIT";
 

@@ -96,6 +96,7 @@ function Boi_project_mcc() {
         try {
           const response = await axios.get(`/getcost`);
           const CostData = await response.data;
+          CostData.unshift(['ALL', 'ALL']);
           setcost(CostData);
         } catch (error) {
           console.error("Error during login:", error);
@@ -155,9 +156,7 @@ function Boi_project_mcc() {
         selecteDatafac[0] !== undefined ? selecteDatafac[0] : "";
       const costValue = selectcost[0] !== undefined ? selectcost[0] : "";
       const BOIValue = selecteDataBOI[0] !== undefined ? selecteDataBOI[0] : "";
-      // const rollNoSearch = await axios.get(
-      //   `/search_BOI_project?FBMC_factory=${factoryValue}&FBMC_cost_center=${costValue}&FBMC_BOI_project=${BOIValue}`
-      // );
+    
       const rollNoSearch = await axios.post(
         "/search_BOI_project",
         {

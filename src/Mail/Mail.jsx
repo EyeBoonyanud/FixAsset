@@ -23,7 +23,6 @@ function Mail() {
   //const สำหรับเช็คค่า Approve and Reject 
   const sts_A_or_R = localStorage.getItem("status_formail")
   const [emailSent, setEmailSent] = useState(false); 
-
  
   useEffect(() => {  
     if(sts_A_or_R == "R"){
@@ -33,7 +32,6 @@ function Mail() {
     }else{
       localStorage.removeItem("Approver_formail")
       Reject= null
-      console.log(To_Send,"FFF")
     }
    
  
@@ -53,7 +51,6 @@ function Mail() {
         sts: status,
       });
       const data = response.data;
-      console.log(data, "response");
   
       Status = data[0];
      
@@ -68,7 +65,6 @@ function Mail() {
         Type_show: RequestType,
       });
       const data = response.data;
-      console.log(data, "response");
   
       Type = data[0];
     
@@ -166,7 +162,6 @@ const Datamail = async (Type,Status) => {
       });
       dataEmail  = response.data.dataEmail; 
       const dataName = response.data.rowName; 
-      console.log(dataEmail,"dataEmail")
     } catch (error) {
       console.error("Error sending email:", error);
     }
@@ -230,7 +225,6 @@ const emailMessage = `
 };
 
 const senttoReq = async (Type,Status,datareq) => {
-  console.log("เข้าาาาาาา333",datareq);
   const emailMessage = `
   <html>
   <body style="font-family: sans-serif; font-size: 16px; color: #333; margin: 0; padding: 0;">

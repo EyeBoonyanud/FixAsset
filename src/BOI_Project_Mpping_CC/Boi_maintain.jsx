@@ -56,7 +56,7 @@ function Boi_maintain({ isOpen, onClose, searchFunction }) {
   const [cost, setcost] = useState([]);
   const [currentDate, setCurrentDate] = useState(new Date());
   const PAGE_STATUS = localStorage.getItem("PAGE_STATUS");
-  const [ErrorBOI_P, setErrorBOI_P] = useState(false); //
+  const [ErrorBOI_P, setErrorBOI_P] = useState(false); 
   const [ErrorFac, setErrorFac] = useState(false);
   const [ErrorCost, setErrorCost] = useState(false);
   const [ErrorStatus, setErrorStatus] = useState(false);
@@ -566,7 +566,7 @@ function Boi_maintain({ isOpen, onClose, searchFunction }) {
                   labelId="demo-simple-select-label"
                   label={!status ? "Select" : undefined}
                   size="small"
-                  value={status} // Set the value from state
+                  value={status} 
                   onChange={handleChange}
                   style={{
                     width: "100%",

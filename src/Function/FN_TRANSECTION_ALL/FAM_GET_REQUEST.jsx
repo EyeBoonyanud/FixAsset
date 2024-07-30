@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Upload } from "antd";
+import WarningIcon from '@mui/icons-material/Warning';
 
 function FAM_GET_REQUEST() {
   // LocalStrorage
@@ -1105,10 +1106,11 @@ For_Rq_Edit[43]
                   uniqueKeys.push(key);
                 }
               });
-              alert(
-                "Fixed Asset Code ถูกใช้แล้วที่ :\n" +
-                  uniqueKeys.join(", ")
-              );
+              Swal.fire({
+                 icon: "warning",
+                title: 'Fixed Asset Code ถูกใช้แล้วที่: <br>' + uniqueKeys.join(", "),
+                confirmButtonText: 'OK'
+              });
             }
           } catch (error) {
             console.error("Error fetching data:", error);
@@ -1334,27 +1336,27 @@ For_Rq_Edit[43]
         For_Rq_Edit[20],
         For_Rq_Edit[21],
         For_Rq_Edit[22],
-For_Rq_Edit[23],
-For_Rq_Edit[24],
-For_Rq_Edit[25],
-For_Rq_Edit[26],
-For_Rq_Edit[27],
-For_Rq_Edit[28],
-For_Rq_Edit[29],
-For_Rq_Edit[30],
-For_Rq_Edit[31],
-For_Rq_Edit[32],
-For_Rq_Edit[33],
-For_Rq_Edit[34],
-For_Rq_Edit[35],
-For_Rq_Edit[36],
-For_Rq_Edit[37],
-For_Rq_Edit[38],
-For_Rq_Edit[39],
-For_Rq_Edit[40],
-For_Rq_Edit[41],
-For_Rq_Edit[42],
-For_Rq_Edit[43]
+        For_Rq_Edit[23],
+        For_Rq_Edit[24],
+        For_Rq_Edit[25],
+        For_Rq_Edit[26],
+        For_Rq_Edit[27],
+        For_Rq_Edit[28],
+        For_Rq_Edit[29],
+        For_Rq_Edit[30],
+        For_Rq_Edit[31],
+        For_Rq_Edit[32],
+        For_Rq_Edit[33],
+        For_Rq_Edit[34],
+        For_Rq_Edit[35],
+        For_Rq_Edit[36],
+        For_Rq_Edit[37],
+        For_Rq_Edit[38],
+        For_Rq_Edit[39],
+        For_Rq_Edit[40],
+        For_Rq_Edit[41],
+        For_Rq_Edit[42],
+        For_Rq_Edit[43]
         
       ];
       const sentdata = JSON.stringify(setData_ForRequester);
@@ -1537,27 +1539,27 @@ For_Rq_Edit[43]
         For_Rq_Edit[20],
         For_Rq_Edit[21],
         For_Rq_Edit[22],
-For_Rq_Edit[23],
-For_Rq_Edit[24],
-For_Rq_Edit[25],
-For_Rq_Edit[26],
-For_Rq_Edit[27],
-For_Rq_Edit[28],
-For_Rq_Edit[29],
-For_Rq_Edit[30],
-For_Rq_Edit[31],
-For_Rq_Edit[32],
-For_Rq_Edit[33],
-For_Rq_Edit[34],
-For_Rq_Edit[35],
-For_Rq_Edit[36],
-For_Rq_Edit[37],
-For_Rq_Edit[38],
-For_Rq_Edit[39],
-For_Rq_Edit[40],
-For_Rq_Edit[41],
-For_Rq_Edit[42],
-For_Rq_Edit[43]
+        For_Rq_Edit[23],
+        For_Rq_Edit[24],
+        For_Rq_Edit[25],
+        For_Rq_Edit[26],
+        For_Rq_Edit[27],
+        For_Rq_Edit[28],
+        For_Rq_Edit[29],
+        For_Rq_Edit[30],
+        For_Rq_Edit[31],
+        For_Rq_Edit[32],
+        For_Rq_Edit[33],
+        For_Rq_Edit[34],
+        For_Rq_Edit[35],
+        For_Rq_Edit[36],
+        For_Rq_Edit[37],
+        For_Rq_Edit[38],
+        For_Rq_Edit[39],
+        For_Rq_Edit[40],
+        For_Rq_Edit[41],
+        For_Rq_Edit[42],
+        For_Rq_Edit[43]
       ];
       const sentdata = JSON.stringify(setData_ForRequester);
       localStorage.setItem("For_Req_Edit", sentdata);
