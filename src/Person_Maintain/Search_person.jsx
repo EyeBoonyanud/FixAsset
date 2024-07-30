@@ -15,6 +15,7 @@ import {
   Grid,
   TextField,
   Button,
+  TablePagination
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
@@ -56,6 +57,17 @@ function person_maintain() {
     const date = new Date(rawDate);
     return date.toLocaleDateString(undefined, options);
   }
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
   const navigate = useNavigate();
   const New = () => {
@@ -468,96 +480,97 @@ function person_maintain() {
           >
             {/* <Table sx={{ minWidth: 650  }} aria-label="simple table" className="TABLEKHUN"> */}
             <Table aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell></TableCell>
-                  <TableCell>Factory</TableCell>
-                  <TableCell>Level</TableCell>
-                  <TableCell>Cost Center</TableCell>
-                  <TableCell>User Login</TableCell>
-                  <TableCell>Name-Surname</TableCell>
-                  <TableCell>Email</TableCell>
-                  <TableCell>Status</TableCell>
-                  <TableCell>Update By</TableCell>
-                  <TableCell>Update Date</TableCell>
+        <TableHead>
+          <TableRow>
+            <TableCell></TableCell>
+            <TableCell>Factory</TableCell>
+            <TableCell>Level</TableCell>
+            <TableCell>Cost Center</TableCell>
+            <TableCell>User Login</TableCell>
+            <TableCell>Name-Surname</TableCell>
+            <TableCell>Email</TableCell>
+            <TableCell>Status</TableCell>
+            <TableCell>Update By</TableCell>
+            <TableCell>Update Date</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {dataSearch.length > 0 ? (
+            dataSearch
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((item, index) => (
+                <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                  <TableCell>
+                    {loading === "false" && index === selectindex ? (
+                      <LoadingOutlined style={{ fontSize: "30px" }} />
+                    ) : (
+                      <EditNoteIcon
+                        style={{ color: "#F4D03F", fontSize: "30px" }}
+                        onClick={() =>
+                          handleOpenEdit(
+                            item[1],
+                            item[3],
+                            item[5],
+                            item[6],
+                            index
+                          )
+                        }
+                      />
+                    )}
+                    <DeleteForeverIcon
+                      style={{ color: "red", fontSize: "30px" }}
+                      onClick={() =>
+                        handleOpenDelete(
+                          item[1],
+                          item[3],
+                          item[5],
+                          item[6],
+                          item[7],
+                          item[2],
+                          item[0]
+                        )
+                      }
+                    />
+                  </TableCell>
+                  <TableCell className="TexttableA">{item[0]}</TableCell>
+                  <TableCell className="TexttableA">{item[2]}</TableCell>
+                  <TableCell className="TexttableA">{item[5]}</TableCell>
+                  <TableCell className="TexttableA">{item[6]}</TableCell>
+                  <TableCell className="TexttableA" style={{ textAlign: "left" }}>{item[7]}</TableCell>
+                  <TableCell className="TexttableA" style={{ textAlign: "left" }}>{item[8]}</TableCell>
+                  <TableCell className="TexttableA">{item[9]}</TableCell>
+                  <TableCell className="TexttableA">{item[10]}</TableCell>
+                  <TableCell>{item[11]}</TableCell>
                 </TableRow>
-              </TableHead>
-              <TableBody>
-                {dataSearch.length > 0 ? (
-                  dataSearch.map((item, index) => (
-                    <TableRow
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell>
-                        {loading == "false" && index == selectindex ? (
-                          <LoadingOutlined style={{ fontSize: "30px" }} />
-                        ) : (
-                          <EditNoteIcon
-                            style={{ color: "#F4D03F", fontSize: "30px" }}
-                            onClick={() =>
-                              handleOpenEdit(
-                                item[1],
-                                item[3],
-                                item[5],
-                                item[6],
-                                index
-                              )
-                            }
-                          />
-                        )}
-
-                        <DeleteForeverIcon
-                          style={{ color: "red", fontSize: "30px" }}
-                          onClick={() =>
-                            handleOpenDelete(
-                              item[1],
-                              item[3],
-                              item[5],
-                              item[6],
-                              item[7],
-                              item[2],
-                              item[0]
-                            )
-                          }
-                        />
-                      </TableCell>
-                      <TableCell className="TexttableA">{item[0]}</TableCell>
-                      <TableCell className="TexttableA">{item[2]}</TableCell>
-                      <TableCell className="TexttableA">{item[5]}</TableCell>
-                      <TableCell className="TexttableA">{item[6]}</TableCell>
-                      <TableCell className="TexttableA" style={{ textAlign: "left" }}>{item[7]}</TableCell>
-                      <TableCell className="TexttableA" style={{ textAlign: "left" }}>{item[8]}</TableCell>
-                      <TableCell className="TexttableA">{item[9]}</TableCell>
-                      <TableCell className="TexttableA">{item[10]}</TableCell>
-                      <TableCell>{item[11]}</TableCell>
-                    </TableRow>
-                  ))
-                ) : (
-                  <TableRow style={{ visibility: checkEmpty }}>
-                    <TableCell colSpan={9}>
-                      {/* <InfoCircleOutlined
-                        style={{
-                          visibility: checkData,
-                          fontSize: "30px",
-                          color: "#ffd580",
-                        }}
-                      /> */}
-                      <text
-                        style={{
-                          visibility: checkData,
-                          fontSize: "25px",
-                          marginLeft: "10px",
-                        }}
-                      >
-                        {/* {" "}
-                        Please fill in information{" "} */}
-                      </text>
-                      <Empty style={{ visibility: checkEmpty }} />
-                    </TableCell>
-                  </TableRow>
-                )}
-              </TableBody>
-            </Table>
+              ))
+          ) : (
+            <TableRow style={{ visibility: checkEmpty }}>
+              <TableCell colSpan={10}>
+                <text
+                  style={{
+                    visibility: checkData,
+                    fontSize: "25px",
+                    marginLeft: "10px",
+                  }}
+                >
+                  {/* Please fill in information */}
+                </text>
+                <Empty style={{ visibility: checkEmpty }} />
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 50]}
+        component="div"
+        count={dataSearch.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+ 
           </TableContainer>
         </div>
       </div>
