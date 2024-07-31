@@ -879,9 +879,11 @@ function PDF_design() {
                                     &nbsp;1) Requester
                                   </TableCell>
                                   <TableCell className="HeaderOneTablecell_2">
+
                                     <TableRow>
                                       <TableCell className="HeaderOneTablecell_row_name">
                                         &nbsp;Name : {Datafamno[0][1]}
+                                        {/* &nbsp;Name : DOUNGKAMONCHANOKVO PHUTTHAWONG */}
                                       </TableCell>
                                       <TableCell className="HeaderOneTablecell_row_tel">
                                         &nbsp;Tel. : {Datafamno[0][4]}
@@ -892,6 +894,8 @@ function PDF_design() {
                                     <TableRow>
                                       <TableCell className="HeaderOneTablecell_row_name">
                                         &nbsp;Owner : {Datafamno[0][2]}
+                                 
+                                        
                                       </TableCell>
                                       <TableCell className="HeaderOneTablecell_row_tel">
                                         &nbsp;Tel. : {Datafamno[0][5]}
@@ -904,7 +908,8 @@ function PDF_design() {
                                         &nbsp; Factory : {Datafamno[0][6]}
                                       </TableCell>
                                       <TableCell className="HeaderOneTablecell_row_cost">
-                                        &nbsp;Cost Center : {Datafamno[0][33]}
+                                        &nbsp;CC : {Datafamno[0][33]}
+                                      
                                       </TableCell>
                                       {/* <TableCell className="HeaderOneTablecell_row_dept"> */}
                                         {/* &nbsp;Dept. : {Datafamno[0][3]} */}
