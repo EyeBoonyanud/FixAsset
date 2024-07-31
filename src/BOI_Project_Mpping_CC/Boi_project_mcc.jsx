@@ -204,7 +204,7 @@ function Boi_project_mcc() {
     setselectcost("");
     setselecteDataBOI("");
     setUser_Login("");
-    setdataSearch("");
+    setdataSearch([]);
     setCheckHead("hidden");
     setCheckEmpty("hidden");
     setCheckData("visible");
@@ -452,33 +452,41 @@ function Boi_project_mcc() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {dataSearch.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item, index) => (
-            <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-              <TableCell>
-                {loading === "false" && index === selectindex ? (
-                  <LoadingOutlined style={{ fontSize: "30px" }} />
-                ) : (
-                  <EditNoteIcon
-                    style={{ color: "#F4D03F", fontSize: "30px" }}
-                    onClick={() => handleOpenEdit(item[1], item[3], item[4], index)}
-                  />
-                )}
-                <DeleteForeverIcon
-                  style={{ color: "red", fontSize: "30px" }}
-                  onClick={() => handleOpenDelete(item[1], item[3], item[4])}
-                />
-              </TableCell>
-              <TableCell className="TexttableA">{item[1]}</TableCell>
-              <TableCell className="TexttableA">{item[3]}</TableCell>
-              <TableCell className="TexttableA" style={{ textAlign: "left" }}>{item[4]}</TableCell>
-              <TableCell className="TexttableA">{item[5]}</TableCell>
-              <TableCell className="TexttableA">{item[6]}</TableCell>
-              <TableCell>{item[7]}</TableCell>
-            </TableRow>
-          ))}
+        {dataSearch.length === 0 ? (
+  <TableRow>
+    <TableCell colSpan={7} style={{ textAlign: "center" }}>
+     <Empty/>
+    </TableCell>
+  </TableRow>
+) : (
+  dataSearch.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item, index) => (
+    <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+      <TableCell>
+        {loading === "false" && index === selectindex ? (
+          <LoadingOutlined style={{ fontSize: "30px" }} />
+        ) : (
+          <EditNoteIcon
+            style={{ color: "#F4D03F", fontSize: "30px" }}
+            onClick={() => handleOpenEdit(item[1], item[3], item[4], index)}
+          />
+        )}
+        <DeleteForeverIcon
+          style={{ color: "red", fontSize: "30px" }}
+          onClick={() => handleOpenDelete(item[1], item[3], item[4])}
+        />
+      </TableCell>
+      <TableCell className="TexttableA">{item[1]}</TableCell>
+      <TableCell className="TexttableA">{item[3]}</TableCell>
+      <TableCell className="TexttableA" style={{ textAlign: "left" }}>{item[4]}</TableCell>
+      <TableCell className="TexttableA">{item[5]}</TableCell>
+      <TableCell className="TexttableA">{item[6]}</TableCell>
+      <TableCell>{item[7]}</TableCell>
+    </TableRow>
+  ))
+)}
           {emptyRows > 0 && (
-            <TableRow style={{ height: 53 * emptyRows }}>
-              <TableCell colSpan={7} />
+            <TableRow >
+              {/* <TableCell colSpan={7} /> */}
             </TableRow>
           )}
         </TableBody>

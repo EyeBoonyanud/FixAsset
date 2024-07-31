@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { Upload } from "antd";
-import WarningIcon from '@mui/icons-material/Warning';
 
 function FAM_GET_REQUEST() {
   // LocalStrorage
@@ -810,8 +808,7 @@ For_Rq_Edit[43]
     }
   };
   const handleEmpUser = async (event) => {
-    let costdept =""
-    let cost =""
+
   
     try {
       const response = await axios.post("/Id_owner", {

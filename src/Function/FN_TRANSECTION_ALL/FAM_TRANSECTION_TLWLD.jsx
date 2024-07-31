@@ -470,10 +470,10 @@ function FAM_TRANSECTION_TLWLD() {
     Fac_manager();
     ACC_Check();
     ACC_Manager();
-    PTE_ENV();
-    PLN_staff();
-    Shipping();
-    Import_boi();
+    // PTE_ENV();
+    // PLN_staff();
+    // Shipping();
+    // Import_boi();
     
     if (Showtype == "GP01001") {
       edit_New_BOI();
@@ -4435,7 +4435,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[3] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel For Requester");
+          alert("กรุณาระบุ Tel For Requester");
           navigate("/FAMsystem/ForRe");
           return;
         } else {
@@ -4468,7 +4468,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[19] === "" ||
           For_Rq_Edit[19] === "null"
         ) {
-          alert("กรุณาเลือก   Owner Tel ");
+          alert("กรุณาระบุ  Owner Tel ");
           setErrorDept(true);
           navigate("/FAMsystem/ForRe");
           return;
@@ -4523,7 +4523,7 @@ function FAM_TRANSECTION_TLWLD() {
           Tel_for_trans === "" ||
           Tel_for_trans === "null"
         ) {
-          alert("กรุณาเลือก  Tel ");
+          alert("กรุณาระบุ  Tel ");
           setErrorTel(true);
           return;
         } else {
@@ -5013,7 +5013,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
                 navigate("/FAMsystem/Mail");
-                navigatenavigate("/ApproveFam");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
               }
@@ -5084,7 +5083,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -5158,7 +5156,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -5625,7 +5622,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Req[2] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel Requester");
+          alert("กรุณาระบุ  Tel Requester");
           let ErrorTel_Req = "true";
 
           navigate("/FAMsystem/ForRe", ErrorTel_Req);
@@ -5719,7 +5716,7 @@ function FAM_TRANSECTION_TLWLD() {
           Tel_for_trans === "" ||
           Tel_for_trans === "null"
         ) {
-          alert("กรุณาเลือก  Tel ");
+          alert("กรุณาระบุ  Tel ");
           setErrorTel(true);
           return;
         } else {
@@ -5922,7 +5919,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[3] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel For Requester");
+          alert("กรุณาระบุ Tel For Requester");
           navigate("/FAMsystem/ForRe");
           return;
         } else {
@@ -5957,7 +5954,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[19] === "" ||
           For_Rq_Edit[19] === "null"
         ) {
-          alert("กรุณาเลือก   Owner Tel ");
+          alert("กรุณาระบุ  Owner Tel ");
           setErrorDept(true);
           navigate("/FAMsystem/ForRe");
           return;
@@ -6880,7 +6877,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Req[2] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel Requester");
+          alert("กรุณาระบุ  Tel Requester");
           let ErrorTel_Req = "true";
 
           navigate("/FAMsystem/ForRe", ErrorTel_Req);
@@ -7078,7 +7075,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[3] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel For Requester");
+          alert("กรุณาระบุ Tel For Requester");
           navigate("/FAMsystem/ForRe");
           return;
         } else {
@@ -7113,7 +7110,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[19] === "" ||
           For_Rq_Edit[19] === "null"
         ) {
-          alert("กรุณาเลือก   Owner Tel ");
+          alert("กรุณาระบุ  Owner Tel ");
           setErrorDept(true);
           navigate("/FAMsystem/ForRe");
           return;
@@ -7262,7 +7259,6 @@ function FAM_TRANSECTION_TLWLD() {
               localStorage.setItem("Req_by", For_Rq_Edit[2]);
               localStorage.setItem("Status", Status);
               navigate("/FAMsystem/Mail");
-               navigate('/Search');
             } catch (error) {
               console.error("Error updating submit status:", error.message);
             }
@@ -7332,7 +7328,6 @@ function FAM_TRANSECTION_TLWLD() {
               localStorage.removeItem("Edit_Dteail_for_FixedCode");
               localStorage.removeItem("Edit_routing");
               navigate("/FAMsystem/Mail");
-              navigate("/FAMsystem/Search");
             } catch (error) {
               console.error("Error updating submit status:", error.message);
             }
@@ -7397,7 +7392,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
                 navigate("/FAMsystem/Mail");
-                navigate("/ApproveFam");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
               }
@@ -7459,7 +7453,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -7524,7 +7517,7 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                // //navigate("/FAMsystem/Mail");
+                navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
               }
@@ -7594,7 +7587,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -7736,7 +7728,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
                 navigate("/FAMsystem/Mail");
-                navigate("/ApproveFam");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
               }
@@ -7805,7 +7796,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
                 navigate("/FAMsystem/Mail");
-                navigate("/ApproveFam");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
               }
@@ -7875,7 +7865,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -7956,7 +7945,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
                 navigate("/FAMsystem/Mail");
-                navigate("/ApproveFam");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
               }
@@ -8036,7 +8024,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
                 navigate("/FAMsystem/Mail");
-                navigate("/ApproveFam");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
               }
@@ -8051,7 +8038,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Req[2] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel Requester");
+          alert("กรุณาระบุ  Tel Requester");
           let ErrorTel_Req = "true";
 
           navigate("/FAMsystem/ForRe", ErrorTel_Req);
@@ -8250,7 +8237,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[3] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel For Requester");
+          alert("กรุณาระบุ Tel For Requester");
           navigate("/FAMsystem/ForRe");
           return;
         } else {
@@ -8285,7 +8272,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[19] === "" ||
           For_Rq_Edit[19] === "null"
         ) {
-          alert("กรุณาเลือก   Owner Tel ");
+          alert("กรุณาระบุ  Owner Tel ");
           setErrorDept(true);
           navigate("/FAMsystem/ForRe");
           return;
@@ -8631,7 +8618,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -8767,7 +8753,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                // //navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -8841,7 +8826,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                // //navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -9273,7 +9257,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Req[2] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel Requester");
+          alert("กรุณาระบุ  Tel Requester");
           let ErrorTel_Req = "true";
 
           navigate("/FAMsystem/ForRe", ErrorTel_Req);
@@ -9470,7 +9454,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[3] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel For Requester");
+          alert("กรุณาระบุ Tel For Requester");
           navigate("/FAMsystem/ForRe");
           return;
         } else {
@@ -9505,7 +9489,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[19] === "" ||
           For_Rq_Edit[19] === "null"
         ) {
-          alert("กรุณาเลือก   Owner Tel ");
+          alert("กรุณาระบุ  Owner Tel ");
           setErrorDept(true);
           navigate("/FAMsystem/ForRe");
           return;
@@ -10635,7 +10619,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Req[2] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel Requester");
+          alert("กรุณาระบุ  Tel Requester");
           let ErrorTel_Req = "true";
 
           navigate("/FAMsystem/ForRe", ErrorTel_Req);
@@ -10856,7 +10840,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[3] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel For Requester");
+          alert("กรุณาระบุ Tel For Requester");
           navigate("/FAMsystem/ForRe");
           return;
         } else {
@@ -10891,7 +10875,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[19] === "" ||
           For_Rq_Edit[19] === "null"
         ) {
-          alert("กรุณาเลือก   Owner Tel ");
+          alert("กรุณาระบุ  Owner Tel ");
           setErrorDept(true);
           navigate("/FAMsystem/ForRe");
           return;
@@ -11174,7 +11158,6 @@ function FAM_TRANSECTION_TLWLD() {
               localStorage.removeItem("Edit_Dteail_for_FixedCode");
               localStorage.removeItem("Edit_routing");
               navigate("/FAMsystem/Mail");
-              navigate("/FAMsystem/Search");
             } catch (error) {
               console.error("Error updating submit status:", error.message);
             }
@@ -11239,7 +11222,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
                 navigate("/FAMsystem/Mail");
-                //navigate("/ApproveFam");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
               }
@@ -11876,7 +11858,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                 //navigate("/ApproveFam");
                  navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -11951,7 +11932,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                // //navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -12131,7 +12111,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Req[2] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel Requester");
+          alert("กรุณาระบุ  Tel Requester");
           let ErrorTel_Req = "true";
 
           navigate("/FAMsystem/ForRe", ErrorTel_Req);
@@ -12378,7 +12358,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[3] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel For Requester");
+          alert("กรุณาระบุ Tel For Requester");
           navigate("/FAMsystem/ForRe");
           return;
         } else {
@@ -12413,7 +12393,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Rq_Edit[19] === "" ||
           For_Rq_Edit[19] === "null"
         ) {
-          alert("กรุณาเลือก   Owner Tel ");
+          alert("กรุณาระบุ  Owner Tel ");
           setErrorDept(true);
           navigate("/FAMsystem/ForRe");
           return;
@@ -12641,7 +12621,6 @@ function FAM_TRANSECTION_TLWLD() {
               localStorage.setItem("Req_by", For_Rq_Edit[2]);
               localStorage.setItem("Status", Status);
               navigate("/FAMsystem/Mail");
-              //  navigate('/Search');
             } catch (error) {
               console.error("Error updating submit status:", error.message);
             }
@@ -12736,7 +12715,6 @@ function FAM_TRANSECTION_TLWLD() {
               localStorage.removeItem("Edit_Dteail_for_FixedCode");
               localStorage.removeItem("Edit_routing");
               navigate("/FAMsystem/Mail");
-              // navigate("/FAMsystem/Search");
             } catch (error) {
               console.error("Error updating submit status:", error.message);
             }
@@ -12810,7 +12788,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
                 navigate("/FAMsystem/Mail");
-                //navigate("/ApproveFam");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
               }
@@ -12881,7 +12858,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                //navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -12955,7 +12931,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
                 navigate("/FAMsystem/Mail");
-                //navigate("/ApproveFam");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
               }
@@ -13033,7 +13008,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                // //navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -13113,7 +13087,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                // //navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -13272,7 +13245,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
                 navigate("/FAMsystem/Mail");
-                // //navigate("/ApproveFam");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
               }
@@ -13336,7 +13308,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                // //navigate("/ApproveFam");
                 navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -13460,7 +13431,6 @@ function FAM_TRANSECTION_TLWLD() {
                 localStorage.removeItem("Edit_Trans");
                 localStorage.removeItem("Edit_Dteail_for_FixedCode");
                 localStorage.removeItem("Edit_routing");
-                 //navigate("/ApproveFam");
                  navigate("/FAMsystem/Mail");
               } catch (error) {
                 console.error("Error updating submit status:", error.message);
@@ -14395,7 +14365,7 @@ function FAM_TRANSECTION_TLWLD() {
           For_Req[2] === "null"
         ) {
           setErrorTel_Rq(true);
-          alert("กรุณาเลือก  Tel Requester");
+          alert("กรุณาระบุ  Tel Requester");
           let ErrorTel_Req = "true";
 
           navigate("/FAMsystem/ForRe", ErrorTel_Req);

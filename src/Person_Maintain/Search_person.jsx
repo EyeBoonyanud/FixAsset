@@ -57,6 +57,7 @@ function person_maintain() {
     const date = new Date(rawDate);
     return date.toLocaleDateString(undefined, options);
   }
+
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -554,6 +555,8 @@ function person_maintain() {
                   }}
                 >
                   {/* Please fill in information */}
+                  <Empty/>
+                  
                 </text>
                 <Empty style={{ visibility: checkEmpty }} />
               </TableCell>

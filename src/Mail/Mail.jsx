@@ -196,7 +196,7 @@ const emailMessage = `
               <td style="border-radius: 3px; border: 1px solid #ddd; padding: 5px; color: red;">${Status}</td>
           </tr>
       </table>
-      <p style="color: red;"><a href="http://10.17.100.183:80/FAMsystem/" style="color: red;">Click here for action</a></p>
+      <p style="color: red;"><a href="http://10.17.100.183:3101/FAMsystem/" style="color: red;">Click here for action</a></p>
      
   </div>
 </div>
@@ -248,7 +248,7 @@ const senttoReq = async (Type,Status,datareq) => {
               <td style="border-radius: 3px; border: 1px solid #ddd; padding: 5px; color: red;">${Status}</td>
           </tr>
       </table>
-      <p style="color: red;"><a href="http://10.17.100.183:8080/" style="color: red;">Click here for action</a></p>
+      <p style="color: red;"><a href="http://10.17.100.183:3101/" style="color: red;">Click here for action</a></p>
      
   </div>
 </div>
@@ -258,7 +258,7 @@ const senttoReq = async (Type,Status,datareq) => {
   `;
   if ( Type !== "" && Status !== "" && datareq !== undefined) {
      try {
-    const response2 = await axios.post("http://10.17.74.202:5000/sendEmail", {
+    const response2 = await axios.post("/sendEmail", {
        headers: {
          'Content-Type': 'text/html',
        },
