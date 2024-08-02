@@ -13,6 +13,7 @@
   border-radius: 0px !important;
   padding: 0px !important;
 }
+
 .Header {
   width: 297mm;
   height: 6mm !important;
@@ -45,7 +46,7 @@
   align-items: left !important;
 }
 .HeaderOneTablecell_1 {
-  width: 29.7mm;
+  width: 22mm;
   padding: 0px !important;
   margin: 0px !important;
   text-align: left !important;
@@ -55,7 +56,7 @@
   line-height: 1.2 !important;
 }
 .HeaderOneTablecell_2 {
-  width: 88.8mm;
+  width: 65.8mm;
   padding: 0px !important;
   margin: 0px !important;
   text-align: left !important;
@@ -64,7 +65,7 @@
   line-height: 1.2 !important;
 }
 .HeaderOneTablecell_3 {
-  width: 88.9mm;
+  width: 65.9mm;
   padding: 0px !important;
   margin: 0px !important;
   text-align: left !important;
@@ -73,7 +74,7 @@
   line-height: 1.2 !important;
 }
 .HeaderOneTablecell_4 {
-  width: 88.6mm;
+  width: 65.6mm;
   padding: 0px !important;
   margin: 0px !important;
   text-align: left !important;
@@ -91,7 +92,7 @@
   line-height: 1.2 !important;
 }
 .HeaderOneTablecell_row_name {
-  width: 58.45mm;
+  width: 68.45mm;
   padding: 0px !important;
   margin: 0px !important;
   text-align: left !important;
@@ -99,8 +100,9 @@
   font-size: 11px !important;
   line-height: 1.2 !important;
 }
+
 .HeaderOneTablecell_row_tel {
-  width: 30.45mm;
+  width: 17.45mm;
   padding: 0px !important;
   margin: 0px !important;
   text-align: left !important;
@@ -118,7 +120,7 @@
   line-height: 1.2 !important;
 }
 .HeaderOneTablecell_row_cost {
-  width: 50.53mm;
+  width: 60.53mm;
   padding: 0px !important;
   margin: 0px !important;
   text-align: left !important;

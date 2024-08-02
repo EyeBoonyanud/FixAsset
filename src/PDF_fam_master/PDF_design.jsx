@@ -58,6 +58,8 @@ function PDF_design() {
   const [DataPageE, setDataPageE] = useState([]);
   const [DataPageA, setDataPageA] = useState([]);
 
+  console.log(Datafamno,"Datafamno")
+
   const [isPopupOpenLoadding, setPopupOpenLoadding] = useState(false);
   const openPopupLoadding = () => {
     setPopupOpenLoadding(true);
@@ -1689,11 +1691,11 @@ function PDF_design() {
                                           &nbsp; Factory : {Datafamno[0][6]}
                                         </TableCell>
                                         <TableCell className="HeaderOneTablecell_row_cost">
-                                          &nbsp;Cost Center : {Datafamno[0][7]}
+                                          &nbsp;CC : {Datafamno[0][7]}
                                         </TableCell>
-                                        <TableCell className="HeaderOneTablecell_row_dept">
+                                        {/* <TableCell className="HeaderOneTablecell_row_dept">
                                           &nbsp;Dept. : {Datafamno[0][3]}
-                                        </TableCell>
+                                        </TableCell> */}
                                       </TableRow>
                                     </TableCell>
                                   </TableRow>
@@ -2648,11 +2650,11 @@ function PDF_design() {
                                           &nbsp; Factory : {Datafamno[0][6]}
                                         </TableCell>
                                         <TableCell className="HeaderOneTablecell_row_cost">
-                                          &nbsp;Cost Center : {Datafamno[0][7]}
+                                          &nbsp;CC: {Datafamno[0][7]}
                                         </TableCell>
-                                        <TableCell className="HeaderOneTablecell_row_dept">
+                                        {/* <TableCell className="HeaderOneTablecell_row_dept">
                                           &nbsp;Dept. : {Datafamno[0][3]}
-                                        </TableCell>
+                                        </TableCell> */}
                                       </TableRow>
                                     </TableCell>
                                   </TableRow>
