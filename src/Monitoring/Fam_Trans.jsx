@@ -460,7 +460,7 @@ function TransFerDetail() {
                   <td className="Style5"></td>
                   <td className="Style7">
                     {" "}
-                    <Typography variant="subtitle2">Tel :</Typography>
+                    <Typography variant="subtitle2">Tel Service by:</Typography>
                   </td>
                   <td>
                     <FormControl className="Style1">

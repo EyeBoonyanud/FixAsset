@@ -640,6 +640,11 @@ function TransFerDetail() {
                               </MenuItem>
                             ))}
                           </Select>
+                          {ErrorFac && !selecttrans_factory && (
+                          <FormHelperText style={{ color: "red" }}>
+                            กรุณาเลือก : Transfer to Factory{" "}
+                          </FormHelperText>
+                        )}
                         </FormControl>
                       ) : (
                         <TextField
@@ -685,12 +690,12 @@ function TransFerDetail() {
                                 label="Select"
                                 size="small"
                                 sx={{ textAlign: "left" }}
-                                error={ErrorCC && !selecttrans_cc}
+                                error={ErrorCC && (!selecttrans_cc || selecttrans_cc.length == 0)}
                               />
                             )}
                           />
 
-                          {ErrorCC && !selecttrans_cc && (
+                          {ErrorCC && (!selecttrans_cc || selecttrans_cc.length == 0) && (
                             <FormHelperText style={{ color: "red" }}>
                               กรุณาเลือก : Transfer To CC
                             </FormHelperText>
@@ -803,7 +808,7 @@ function TransFerDetail() {
                           helperText={
                             ErrorTel &&
                             (!Tel_for_trans || Tel_for_trans == "null")
-                              ? "กรุณาระบุ"
+                              ? "กรุณาระบุ Tel"
                               : undefined
                           }
                         />
@@ -1067,7 +1072,7 @@ function TransFerDetail() {
                   <td className="Style5"></td>
                   <td className="Style7">
                     {" "}
-                    <Typography variant="subtitle2">Tel:</Typography>
+                    <Typography variant="subtitle2">Tel Service by:</Typography>
                   </td>
                   <td>
                     <FormControl className="Style1">
@@ -1089,7 +1094,7 @@ function TransFerDetail() {
                         helperText={
                           ErrorTel_service &&
                           (!Tel_service || Tel_service == "null")
-                            ? "กรุณาระบุ"
+                            ? "กรุณาระบุ Tel Service by"
                             : undefined
                         }
                       />
@@ -1248,7 +1253,7 @@ function TransFerDetail() {
                       {ErrorBoi_Staff &&
                         (!selectboi_staff || selectboi_staff == "null") && (
                           <FormHelperText style={{ color: "red" }}>
-                            กรุณาเลือก : BOI Manager
+                            กรุณาเลือก:BOI Staff
                           </FormHelperText>
                         )}
                     </FormControl>
