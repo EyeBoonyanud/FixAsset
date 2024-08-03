@@ -12479,7 +12479,12 @@ function FAM_TRANSECTION_TLWLD() {
               scrap_date === "null"
             ) {
               setErrScp_date(true);
-              alert("กรุณาเลือก  Scrap Date");
+             //alert("กรุณาเลือก  Scrap Date");
+ 	Swal.fire({
+    icon: "error",
+    title: "กรุณาเลือก  Scrap Date",
+});
+
               return;
             } else {
               setErrScp_date(false);
