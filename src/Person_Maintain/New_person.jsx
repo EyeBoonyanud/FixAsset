@@ -233,40 +233,40 @@ function person_maintain_new({ isOpen, onClose, searchFunction }) {
               Date_show
             ) {
              
-              // try {
-              //   const response = await axios.post(
-              //     "/ins_PERSON_MAINTAIN",
-              //     {
-              //       FPM_factory: selecteDatafac[0],
-              //       FPM_level: selecteDatalevel[0],
-              //       FPM_cost_center: selectcost[0],
-              //       FPM_user_login: User_Login,
-              //       FPM_email: email,
-              //       FPM_status: status,
-              //       FPM_create_by: UserLoginn,
-              //       FPM_update_by: UserLoginn,
-              //     }
-              //   );
-              //   swal("Success", "Data saved successfully", "success");
-              //   const DATA_BACK_SEARCH = [
-              //     selecteDatafac,
-              //     selecteDatalevel,
-              //     selectcost,
-              //     [User_Login],
-              //   ];
-              //   const sentdata_back_search = JSON.stringify(DATA_BACK_SEARCH);
-              //   localStorage.setItem("DATA_BACK_SEARCH", sentdata_back_search);
+              try {
+                const response = await axios.post(
+                  "/ins_PERSON_MAINTAIN",
+                  {
+                    FPM_factory: selecteDatafac[0],
+                    FPM_level: selecteDatalevel[0],
+                    FPM_cost_center: selectcost[0],
+                    FPM_user_login: User_Login,
+                    FPM_email: email,
+                    FPM_status: status,
+                    FPM_create_by: UserLoginn,
+                    FPM_update_by: UserLoginn,
+                  }
+                );
+                swal("Success", "Data saved successfully", "success");
+                const DATA_BACK_SEARCH = [
+                  selecteDatafac,
+                  selecteDatalevel,
+                  selectcost,
+                  [User_Login],
+                ];
+                const sentdata_back_search = JSON.stringify(DATA_BACK_SEARCH);
+                localStorage.setItem("DATA_BACK_SEARCH", sentdata_back_search);
 
-              //   searchFunction();
-              //   onClose();
-              // } catch (error) {
-              //   console.error("Unable to save data:", error);
-              //   swal(
-              //     "Error",
-              //     "Unable to save data. Please try again.",
-              //     "error"
-              //   );
-              // }
+                searchFunction();
+                onClose();
+              } catch (error) {
+                console.error("Unable to save data:", error);
+                swal(
+                  "Error",
+                  "Unable to save data. Please try again.",
+                  "error"
+                );
+              }
             } else {
               console.error("Unable to save data: Empty values ​​are passed.");
               swal(
