@@ -17,6 +17,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import swal from "sweetalert";
+import Swal from "sweetalert2";
 import CloseIcon from "@mui/icons-material/Close";
 import Autocomplete from "@mui/material/Autocomplete";
 import PageLoadding from "../Loadding/Pageload";
@@ -173,25 +174,37 @@ function person_maintain_new({ isOpen, onClose, searchFunction }) {
   const navigate = useNavigate();
 
   const Save = async () => {
-    if (!selecteDatafac || selecteDatafac.toString().trim() === "") {
+    console.log(username.length,"username")
+
+   if  (!selecteDatafac || selecteDatafac.toString().trim() === "") {
       setErrorFac(true);
     }
-    if (!selecteDatalevel || selecteDatalevel.toString().trim() === "") {
+    else if  (!selecteDatalevel || selecteDatalevel.toString().trim() === "") {
       setErrorLevel(true);
     }
-    if (!selectcost || selectcost.toString().trim() === "") {
+    else if  (!selectcost || selectcost.toString().trim() === "") {
       setErrorCost(true);
     }
-    if (!User_Login || User_Login.toString().trim() === "") {
+    else if  (!User_Login || User_Login.toString().trim() === "") {
       setErrorUserLogin(true);
-    }
-    if (!email || email.toString().trim() === "") {
+    }   
+    else if(username == ""){
+      Swal.fire({
+        title: "Error!",
+        text: "This user login is not registered (BTP Single logon), please request it before save.",
+        icon: "error",
+        confirmButtonText: "OK",
+      }).then( () => {
+        return;
+      });
+    } 
+    else if  (!email || email.toString().trim() === "") {
       setErrorEmail(true);
     }
-    if (!status || status.toString().trim() === "") {
+    else if   (!status || status.toString().trim() === "") {
       setErrorStatus(true);
-    }
-    swal(
+    }else{
+      swal(
       "Do you want to save information",
 
       {
@@ -219,40 +232,41 @@ function person_maintain_new({ isOpen, onClose, searchFunction }) {
               UserLoginn &&
               Date_show
             ) {
-              try {
-                const response = await axios.post(
-                  "/ins_PERSON_MAINTAIN",
-                  {
-                    FPM_factory: selecteDatafac[0],
-                    FPM_level: selecteDatalevel[0],
-                    FPM_cost_center: selectcost[0],
-                    FPM_user_login: User_Login,
-                    FPM_email: email,
-                    FPM_status: status,
-                    FPM_create_by: UserLoginn,
-                    FPM_update_by: UserLoginn,
-                  }
-                );
-                swal("Success", "Data saved successfully", "success");
-                const DATA_BACK_SEARCH = [
-                  selecteDatafac,
-                  selecteDatalevel,
-                  selectcost,
-                  [User_Login],
-                ];
-                const sentdata_back_search = JSON.stringify(DATA_BACK_SEARCH);
-                localStorage.setItem("DATA_BACK_SEARCH", sentdata_back_search);
+             
+              // try {
+              //   const response = await axios.post(
+              //     "/ins_PERSON_MAINTAIN",
+              //     {
+              //       FPM_factory: selecteDatafac[0],
+              //       FPM_level: selecteDatalevel[0],
+              //       FPM_cost_center: selectcost[0],
+              //       FPM_user_login: User_Login,
+              //       FPM_email: email,
+              //       FPM_status: status,
+              //       FPM_create_by: UserLoginn,
+              //       FPM_update_by: UserLoginn,
+              //     }
+              //   );
+              //   swal("Success", "Data saved successfully", "success");
+              //   const DATA_BACK_SEARCH = [
+              //     selecteDatafac,
+              //     selecteDatalevel,
+              //     selectcost,
+              //     [User_Login],
+              //   ];
+              //   const sentdata_back_search = JSON.stringify(DATA_BACK_SEARCH);
+              //   localStorage.setItem("DATA_BACK_SEARCH", sentdata_back_search);
 
-                searchFunction();
-                onClose();
-              } catch (error) {
-                console.error("Unable to save data:", error);
-                swal(
-                  "Error",
-                  "Unable to save data. Please try again.",
-                  "error"
-                );
-              }
+              //   searchFunction();
+              //   onClose();
+              // } catch (error) {
+              //   console.error("Unable to save data:", error);
+              //   swal(
+              //     "Error",
+              //     "Unable to save data. Please try again.",
+              //     "error"
+              //   );
+              // }
             } else {
               console.error("Unable to save data: Empty values ​​are passed.");
               swal(
@@ -312,6 +326,9 @@ function person_maintain_new({ isOpen, onClose, searchFunction }) {
           break;
       }
     });
+    }
+    
+    
   };
 
   const Reset = async () => {

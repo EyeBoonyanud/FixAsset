@@ -20,6 +20,7 @@ const CUSR = {
 module.exports.login = async (req, res) => {
   try {
     const { User, Password } = req.body;
+    console.log(User,Password)
     const connect = await oracledb.getConnection(CUSR);
     const query = `
     SELECT R.ROLE_ID ,T.USER_FNAME , T.USER_SURNAME , T.USER_LOGIN 

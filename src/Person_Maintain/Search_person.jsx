@@ -555,7 +555,7 @@ function person_maintain() {
                   }}
                 >
                   {/* Please fill in information */}
-                  <Empty/>
+                  {/* <Empty/> */}
                   
                 </text>
                 <Empty style={{ visibility: checkEmpty }} />

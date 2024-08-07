@@ -201,3 +201,8 @@
     font-weight: bold;
     font-size: 12px;
   }
+.background-disable{
+  background-color: #a3a3a3 !important;
+  border-radius: 10% !important;
+  height: 100% !important;
+}

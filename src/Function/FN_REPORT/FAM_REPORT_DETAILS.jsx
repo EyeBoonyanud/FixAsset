@@ -87,10 +87,18 @@ function FAM_REPORT_DETAILS( ) {
       selectRequestType === "" &&
       Txt_FamNo === ""
     ) {
-      alert("Please fill information");
+      // alert("Please Select Request Type");
+      Swal.fire({
+        icon: "error",
+        title: "กรุณาเลือกข้อมูล",
+      });
     } else {
       if (selectRequestType == "") {
-        alert("Please Select Request Type");
+        // alert("Please Select Request Type");
+        Swal.fire({
+          icon: "error",
+          title: "กรุณาเลือก Request Type",
+        });
       } else {
         setCheckHead("hidden");
         setCheckEmpty("hidden");

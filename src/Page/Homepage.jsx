@@ -40,12 +40,12 @@ export default function BasicGrid() {
           />
         </Box>
       </Grid>
-      <Grid container spacing={0}>
+      <Grid container spacing={1}>
         <Grid xs={4}>
-          <Card className="Backgroud-card-menu-show">
+          <Card className="Backgroud-card-menu-show"sx={{marginLeft:"40px"}}>
             <Grid container spacing={0} xs={12}>
               <Grid item xs={12}>
-                <Card>
+                <Card >
                   {dataallname_Show && dataallname_Show[0] && (
                     <Table size="small" aria-label="a dense table">
                       <TableHead>
@@ -975,10 +975,10 @@ export default function BasicGrid() {
           </Card>
         </Grid>
         <Grid xs={8}>
-          <Card className="Backgroud-card-menu">
-            <Grid container spacing={0} xs={12}>
+          {/* <Card className="Backgroud-card-menu"> */}
+            <Grid sx={{marginLeft:'20px'}}>
               {/* Menu 1 */}
-              <Grid item xs={1.7}>
+              <Grid item xs={2}>
                 <Card>
                   <CardContent>
                     <Card className="Backgroud-style-menulist1">
@@ -1015,10 +1015,10 @@ export default function BasicGrid() {
                 </Card>
               </Grid>
               {/* Menu 2 */}
-              <Grid item xs={1.7}>
+              {/* <Grid item xs={1.7}>
                 <Card>
                   <CardContent>
-                    <Card className="Backgroud-style-menulist2">
+                    <Card className="background-disable">
                       <CardActionArea className="Backgroud-style-menulist">
                         <CardContent
                           onClick={() =>
@@ -1050,12 +1050,12 @@ export default function BasicGrid() {
                     </Card>
                   </CardContent>
                 </Card>
-              </Grid>
+              </Grid> */}
               {/* Menu 3 */}
-              <Grid item xs={1.7}>
+              {/* <Grid item xs={1.7}>
                 <Card>
                   <CardContent>
-                    <Card className="Backgroud-style-menulist3">
+                    <Card className="background-disable">
                       <CardActionArea className="Backgroud-style-menulist">
                         <CardContent
                          onClick={() =>
@@ -1087,12 +1087,12 @@ export default function BasicGrid() {
                     </Card>
                   </CardContent>
                 </Card>
-              </Grid>
+              </Grid> */}
               {/* Menu 4 */}
-              <Grid item xs={1.7}>
+              {/* <Grid item xs={1.7}>
                 <Card>
                   <CardContent>
-                    <Card className="Backgroud-style-menulist4">
+                    <Card className="background-disable">
                       <CardActionArea className="Backgroud-style-menulist">
                         <CardContent
                             onClick={() =>
@@ -1124,12 +1124,12 @@ export default function BasicGrid() {
                     </Card>
                   </CardContent>
                 </Card>
-              </Grid>
+              </Grid> */}
               {/* Menu 5 */}
-              <Grid item xs={1.7}>
+              {/* <Grid item xs={1.7}>
                 <Card>
                   <CardContent>
-                    <Card className="Backgroud-style-menulist5">
+                    <Card className="background-disable">
                       <CardActionArea className="Backgroud-style-menulist">
                         <CardContent
                           onClick={() =>
@@ -1161,17 +1161,20 @@ export default function BasicGrid() {
                     </Card>
                   </CardContent>
                 </Card>
-              </Grid>
+              </Grid> */}
               {/* Menu 6 */}
-              <Grid item xs={1.7}>
+              {/* <Grid item xs={1.7}>
                 <Card>
                   <CardContent>
-                    <Card className="Backgroud-style-menulist6">
+                    <Card className="background-disable" disable>
+                      
                       <CardActionArea className="Backgroud-style-menulist">
                         <CardContent
-                          onClick={() =>
-                            handleClickMenu_LIST("Sales")
-                          }>
+                          // onClick={() =>
+                          //   handleClickMenu_LIST("Sales")
+                          // }
+                          
+                          >
                           <Typography
                             gutterBottom
                             variant="h5"
@@ -1192,18 +1195,19 @@ export default function BasicGrid() {
                             className="Number-menu-list White-background"
                           >
                             {dataSale[0] || 0}
+                          
                           </Typography>
                         </CardContent>
                       </CardActionArea>
                     </Card>
                   </CardContent>
                 </Card>
-              </Grid>
+              </Grid> */}
               {/* Menu 7 */}
-              <Grid item xs={1.7}>
+              {/* <Grid item xs={1.7}>
                 <Card>
                   <CardContent>
-                    <Card className="Backgroud-style-menulist7">
+                    <Card className="background-disable">
                       <CardActionArea className="Backgroud-style-menulist">
                         <CardContent
                           onClick={() =>
@@ -1235,9 +1239,9 @@ export default function BasicGrid() {
                     </Card>
                   </CardContent>
                 </Card>
-              </Grid>
+              </Grid> */}
             </Grid>
-          </Card>
+          {/* </Card> */}
 
           <Grid container spacing={0} xs={12}>
             <CardContent style={{ width: "50%", margin: "auto" }}>
