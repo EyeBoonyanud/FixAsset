@@ -174,7 +174,6 @@ function person_maintain_new({ isOpen, onClose, searchFunction }) {
   const navigate = useNavigate();
 
   const Save = async () => {
-    console.log(username.length,"username")
 
    if  (!selecteDatafac || selecteDatafac.toString().trim() === "") {
       setErrorFac(true);
@@ -187,8 +186,7 @@ function person_maintain_new({ isOpen, onClose, searchFunction }) {
     }
     else if  (!User_Login || User_Login.toString().trim() === "") {
       setErrorUserLogin(true);
-    }   
-    else if(username == ""){
+    } else if(username == ""){
       Swal.fire({
         title: "Error!",
         text: "This user login is not registered (BTP Single logon), please request it before save.",
