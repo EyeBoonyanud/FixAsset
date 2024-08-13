@@ -11,6 +11,10 @@ function FAM_GET_REQUEST() {
   const Lastname = localStorage.getItem("Lastname");
   const Emp = localStorage.getItem("EmpID");
   const For_Edit_Fixed = localStorage.getItem("Edit_Dteail_for_FixedCode");
+  const Statuss = localStorage.getItem("StatusPage");
+
+
+  
 
   const For_Ed_FixCode = JSON.parse(For_Edit_Fixed);
   const For_edit_request = localStorage.getItem("For_Req_Edit");
@@ -2127,7 +2131,7 @@ For_Rq_Edit[43]
     invoice,
     setinvoice,
     ErrTelReq,
-    ErrOwnerID,ErrTelOwner,ErrDept,ErrServiceDept,handleManual,handleCloseManual,openManual,setownercost_dept,ownercost_dept
+    ErrOwnerID,ErrTelOwner,ErrDept,ErrServiceDept,handleManual,handleCloseManual,openManual,setownercost_dept,ownercost_dept,
   };
 }
 

@@ -52,6 +52,7 @@ import PageLoadding from "../Loadding/Pageload";
 import { FAM_GET_REQUEST } from "../Function/FN_TRANSECTION_ALL/FAM_GET_REQUEST";
  import imageforshow from "../assets/Image/2.png"
  import DownloadPDF from "../assets/PDFManual/Manual.png"
+
  
 
 
@@ -148,7 +149,7 @@ function ForRequest() {
     setchecknext,
     fileInputRef,handleWeightChange,weights,totalWeight,
     size,handleSizeChange,handleUnitPriceChange,unit_price, handleInvoiceChange,
-    invoice,ErrTelReq, ErrOwnerID,ErrTelOwner,ErrDept,ErrServiceDept,handleManual,handleCloseManual,openManual,setownercost_dept,ownercost_dept
+    invoice,ErrTelReq, ErrOwnerID,ErrTelOwner,ErrDept,ErrServiceDept,handleManual,handleCloseManual,openManual,setownercost_dept,ownercost_dept,
   } = FAM_GET_REQUEST();
   const renderTableCells = (columns) => (
     <>
@@ -169,7 +170,9 @@ function ForRequest() {
   // const handleClose = () => {
   //   setOpen(false);
   // };
-  
+
+  const Statuss = localStorage.getItem("StatusPage");
+
   const getColumns = (STS1_Req) => {
     switch(STS1_Req) {
       case "FLTR011":
@@ -213,7 +216,10 @@ function ForRequest() {
       <div style={{ marginTop: "100px" }}>
         <Header />
       </div>
+<div className="pageshow-style">
+  <Typography sx={{fontSize:'20px',fontWeight:'bold'}} >{Statuss}</Typography>
 
+</div>
       <div className="Box-Insert">
         {/* สำหรับ Gen Fam no */}
         <div className="Insert">
@@ -766,8 +772,6 @@ function ForRequest() {
           </Card>
         </div>
         {/* สำหรับ Fixed Assets Code */}
-        <br></br>
-        <br></br>
         <br></br>
         <br></br>
         <div
