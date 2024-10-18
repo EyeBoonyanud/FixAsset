@@ -340,46 +340,7 @@ function Issue() {
                   </FormControl>
                 </TableCell> */}
               </TableRow>
-              <TableRow>
-                <TableCell style={{ border: "0" }}>
-                  <FormControl sx={{ width: 200 }} style={{}}>
-                    <InputLabel size="small" id="demo-simple-select-label">
-                      Request Type :
-                    </InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      label="Request Type :"
-                      value={selectReType}
-                      onChange={(e) => {
-                        setselectReType(e.target.value);
-                        findStatus(e.target.value);
-                      }}
-                      size="small"
-                      style={{
-                        width: "200px",
-                      }}
-                    >
-                      {/* {ReType.map((option) => (
-                        <MenuItem value={option[0]}>{option[1]}</MenuItem>
-                      ))} */}
-                      <MenuItem value={"GP01001"}>Transfer</MenuItem>
-                    </Select>
-                  </FormControl>
-                
-                </TableCell>
-                <TableCell style={{ border: 0 }}>
-                  <TextField
-                    label="Fix Asset Code :"
-                    size="small"
-                    variant="outlined"
-                    id="FixAsset"
-                    style={{
-                      width: 200,
-                    }}
-                  />
-                </TableCell>
-              </TableRow>
+              
               <TableRow>
                 {/* <TableCell style={{ border: 0 }}>
                
@@ -417,7 +378,7 @@ function Issue() {
                       width: "200px",
                       marginRight: "5px",
                     }}
-                    s
+                    
                     value={selectedDateFrom}
                     onChange={(e) => {
                       setSelectedDateFrom(e.target.value);
@@ -443,7 +404,78 @@ function Issue() {
                   ></TextField>
                 </TableCell>
               </TableRow>
-
+              <TableRow>
+                <TableCell style={{ border: "0" }}>
+                  <FormControl sx={{ width: 200 }} style={{}}>
+                    <InputLabel size="small" id="demo-simple-select-label">
+                      Request Type :
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      label="Request Type :"
+                      value={selectReType}
+                      onChange={(e) => {
+                        setselectReType(e.target.value);
+                        findStatus(e.target.value);
+                      }}
+                      size="small"
+                      style={{
+                        width: "200px",
+                      }}
+                    >
+                      {/* {ReType.map((option) => (
+                        <MenuItem value={option[0]}>{option[1]}</MenuItem>
+                      ))} */}
+                      <MenuItem value={"GP01001"}>Transfer</MenuItem>
+                    </Select>
+                  </FormControl>
+                
+                </TableCell>
+                {/* <TableCell style={{ border: 0 }}>
+                  <TextField
+                    label="Fix Asset Code :"
+                    size="small"
+                    variant="outlined"
+                    id="FixAsset"
+                    style={{
+                      width: 200,
+                    }}
+                  />
+                </TableCell> */}
+                <TableCell style={{ border: "0" }}>
+                  <FormControl
+                    sx={{ width: 200 }}
+                    style={{ display: Path === "FAMMASTER" ? "block" : "none" }}
+                  >
+                    <Autocomplete
+                      value={selectStatus}
+                      onChange={(e, value) => {
+                        setselectStatus(value);
+                        selectStatusID(value.value);
+                      }}
+                      options={Status.map((item) => ({
+                        label: item[1],
+                        value: item[0],
+                      }))}
+                      getOptionLabel={(option) => option.label}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          label="Status :"
+                          size="small"
+                          sx={{ textAlign: "left" }}
+                        />
+                      )}
+                      getOptionSelected={(option, value) =>
+                        value === "" ? false : option.value === value.value
+                      }
+                      noOptionsText=" กรุณาเลือก Request Type"
+                    />
+                  </FormControl>
+                </TableCell>
+          
+              </TableRow>
               <TableRow
                 style={{
                   display: Path === "SEARCH" ? "table-row" : "none",
@@ -481,7 +513,7 @@ function Issue() {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ border: "0" }}>
+                {/* <TableCell style={{ border: "0" }}>
                   <FormControl
                     sx={{ width: 200 }}
                     style={{ display: Path === "FAMMASTER" ? "block" : "none" }}
@@ -511,7 +543,7 @@ function Issue() {
                       noOptionsText=" กรุณาเลือก Request Type"
                     />
                   </FormControl>
-                </TableCell>
+                </TableCell> */}
                 <TableCell style={{ border: 0 }}></TableCell>
               </TableRow>
             </Table>

@@ -62,13 +62,10 @@ const SidebarMenu = ({ isOpen, onClose }) => {
 
   const subMenu = async () => {
     try {
-      const response = await axios.post(
-        "/getsubmenu",
-        {
-          userlogin: UserLogin,
-          role: Role,
-        }
-      );
+      const response = await axios.post("/getsubmenu", {
+        userlogin: UserLogin,
+        role: Role,
+      });
       const data = await response.data;
       let datasubmenu = [];
       let datasubmenuid = [];
@@ -88,11 +85,11 @@ const SidebarMenu = ({ isOpen, onClose }) => {
 
   const handleButtonClick = (id) => {
     if (id === "Issue FAM") {
-      localStorage.removeItem("TYPE")
+      localStorage.removeItem("TYPE");
       window.location.href = "/FAMsystem/Search";
     }
     if (id === "Approve FAM") {
-      localStorage.removeItem("TYPE")
+      localStorage.removeItem("TYPE");
       window.location.href = "/FAMsystem/ApproveFam";
     }
     if (id === "FAM Detail Report") {
@@ -204,7 +201,7 @@ const SidebarMenu = ({ isOpen, onClose }) => {
         </div>
 
         {/* Menu Monitoring Function */}
-        <div style={{ display:  Role === "214"  ? "none" : "block" }}>
+        <div style={{ display: Role === "214" ? "none" : "block" }}>
           <ListItem className="ListItem" onClick={toggleSubMenu3}>
             <ListItemIcon>
               <SensorsOutlinedIcon color="success" />
@@ -216,7 +213,8 @@ const SidebarMenu = ({ isOpen, onClose }) => {
             <>
               {menudataId.map(
                 (item, index) =>
-                  menudataId[index] === menuId[2] && (
+                  menudataId[index] === menuId[2] &&
+                  menudata[index] !== "Close lending by ACC" && ( // เพิ่มกรองไม่ให้แสดงเมนู "Close lending by ACC"
                     <ListItem
                       className="SubMenuItem"
                       onClick={() => {
@@ -236,7 +234,14 @@ const SidebarMenu = ({ isOpen, onClose }) => {
         </div>
 
         {/* Menu Master Data Function */}
-        <div style={{ display: Role === "214" || Role === "212" || Role === "213" ? "none" : "block" }}>
+        <div
+          style={{
+            display:
+              Role === "214" || Role === "212" || Role === "213"
+                ? "none"
+                : "block",
+          }}
+        >
           <ListItem className="ListItem" onClick={toggleSubMenu4}>
             <ListItemIcon>
               <SensorsOutlinedIcon color="success" />
@@ -248,7 +253,8 @@ const SidebarMenu = ({ isOpen, onClose }) => {
             <>
               {menudataId.map(
                 (item, index) =>
-                  menudataId[index] === menuId[3] && menudata[index] !== "Master Code Maintain" && (
+                  menudataId[index] === menuId[3] &&
+                  menudata[index] !== "Master Code Maintain" && (
                     <ListItem
                       className="SubMenuItem"
                       onClick={() => {
@@ -281,7 +287,8 @@ const SidebarMenu = ({ isOpen, onClose }) => {
             <>
               {menudataId.map(
                 (item, index) =>
-                  menudataId[index] === menuId[4] && menudata[index] !== "FAM Form" && (
+                  menudataId[index] === menuId[4] &&
+                  menudata[index] !== "FAM Form" && (
                     <ListItem
                       className="SubMenuItem"
                       onClick={() => {

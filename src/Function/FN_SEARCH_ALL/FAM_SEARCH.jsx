@@ -102,7 +102,7 @@ function FAM_SEARCH() {
   const Search = async () => {
     const FamNo = document.getElementById("FamNo").value;
     const FamTo = document.getElementById("FamTo").value;
-    const FixAsset = document.getElementById("FixAsset").value;
+    // const FixAsset = document.getElementById("FixAsset").value;
     const Date = document.getElementById("Date").value;
     const DateTo = document.getElementById("DateTo").value;
     let Search_for_type=""
@@ -230,7 +230,7 @@ function FAM_SEARCH() {
   const Reset = async () => {
     document.getElementById("FamNo").value = "";
     document.getElementById("FamTo").value = "";
-    document.getElementById("FixAsset").value = "";
+    // document.getElementById("FixAsset").value = "";
     setselectdept("");
     setselecteDatafac("");
     setselectcost("");
